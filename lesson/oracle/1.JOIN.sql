@@ -1,5 +1,5 @@
 --JOIN
- --사원의 사번, 이름, 급여, 부서번호, 부서명을 출력하시오
+ --사원의 사번, 이름, 급여, 부서번호, 부서명을 출력하시오.
 SELECT employee_id, first_name, salary, department_id
 FROM employees;
 
