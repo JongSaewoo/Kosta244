@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.sample{
+	background-color:lightgray;
+	border:1px solid;
+	padding:3px;
+	margin:2px;
+	width:200px;
+}
+#d3{
+	background-color:lightgray;
+	border:1px solid;
+	padding:3px;
+	margin:2px;
+	width:200px;
+	display:inline-block;
+}
