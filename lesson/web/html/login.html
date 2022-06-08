@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 페이지</title>
+<style>
+  form{
+  	background:rgb(215, 215, 215);
+  	padding:15px;
+  	width:425px;
+  }
+  #tx1{
+    width:300px;
+  }
+  #tx2{
+    width:300px;
+  }
+  
+  a{
+    text-decoration-line: none;
+  }
+  
+  .loginbutton{
+  	background:green;
+  	color:white;
+  	width:80px;
+  	height:30px;
+  	border-style:none;
+  	border-radius:3px;
+  }
+</style>
+</head>
+<body>
+  <form action="http://localhost:8888/back/login.html" method="POST">
+      <label>아이디</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="tx1" type="text" placeholder="아이디를 입력하세요"><br><br>
+      <label>비밀번호</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="tx2" type="password" placeholder="비밀번호를 입력하세요"><br><br>
+      
+      <input type="submit" class=loginbutton value="로그인">&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://localhost:8888/back/html/searchid.html">아이디찾기</a>
+      <a href="http://localhost:8888/front/html/searchpwd.html">비밀번호찾기</a>
+      
+      <input type="checkbox" checked>아이디저장
+  </form>
+</body>
+</html>

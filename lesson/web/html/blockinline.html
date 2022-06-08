@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>blockinline.html</title>
+</head>
+<!--
+<style>
+.sample{
+	background-color:lightgray;
+	border:1px solid;
+	padding:3px;
+	margin:2px;
+	width:200px;
+}
+#d3{
+	background-color:lightgray;
+	border:1px solid;
+	padding:3px;
+	margin:2px;
+	width:200px;
+	display:inline-block;
+}
+</style>
+-->
+<link rel="stylesheet" href="../css/blockinline.css">
+<body>
+	<!--  
+	<div style="background-color:lightgray;border:1px solid;padding:3px;margin:2px;width:200px;">DIV1(block요소:자동줄바꿈, 크기지정가능, 상하마진갖음, 상하마진겹침)</div>
+	<div style="background-color:lightgray;border:1px solid;padding:3px;margin:2px;width:200px;
+		display:inline">DIV2(inline요소:자동줄바꿈안됨, 크기지정안됨, 상하마진없음)</div>	
+	<div style="background-color:lightgray;border:1px solid;padding:3px;margin:2px;width:200px;
+		display:inline-block">DIV3(inline-block요소:줄바꿈안됨, 크기지정가능, 상하마진갖음)</div>
+	<span style="background-color:lightgray;border:1px solid;padding:3px;margin:2px;width:200px;display:block">SPAN1(block요소)</span>
+	<span style="background-color:lightgray;border:1px solid;padding:3px;margin:2px;width:200px;">SPAN2</span>
+	<span style="background-color:lightgray;border:1px solid;padding:3px;margin:2px;width:200px;">SPAN3</span>
+	-->
+	
+	<div class="sample">DIV1(block요소:자동줄바꿈, 크기지정가능, 상하마진갖음, 상하마진겹침)</div>
+	<div class="sample" style="display:inline">DIV2(inline요소:자동줄바꿈안됨, 크기지정안됨, 상하마진없음)</div>
+	<div id="d3">DIV3(inline-block요소:줄바꿈안됨, 크기지정가능, 상하마진갖음)</div>
+	<span class="sample" style="display:block">SPAN1(block요소)</span>
+	<span class="sample">SPAN2</span>
+	<span class="sample">SPAN3</span>
+</body>
+</html>
