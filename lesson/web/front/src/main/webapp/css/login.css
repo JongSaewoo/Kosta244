@@ -1,0 +1,47 @@
+div.login {
+    width: 95%;
+    background-color: rgb(226, 232, 235);
+    padding: 10px;
+}
+
+/*테이블 첫번째 열*/
+div.login>form>div.table div.td1 {
+    width: 30%;
+    padding: 5px;
+    display: inline-block;
+}
+
+/*테이블 두번째 열*/
+div.login>form>div.table div.td2 {
+    width: 60%;
+    padding: 5px;
+    display: inline-block;
+}
+
+/*테이블 두번째 행*/
+div.login>form>div.table div.tr2 {
+    padding-bottom: 30px;
+}
+
+/*inputbox*/
+div.login>form>div.table input.txtbox {
+    width: 100%;
+}
+
+/*테이블 3행 2열*/
+div.login>form>div.table>div.tr3>div.td2 {
+    text-align: right;
+}
+
+/* '비밀번호 찾기' 링크 */
+#pwdtxt {
+    padding-right: 20px;
+}
+
+/* #idbox {
+    width: 110%;
+}
+
+#pwdbox {
+    width: 110%;
+} */

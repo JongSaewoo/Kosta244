@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+				<style>
+					div.select>select.sigungu{
+						display: none;
+					}
+					div.keyboard>input[type=text]:focus{
+						background-color: antiquewhite;
+					}
+				</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../jq/event.js"></script>
+    </head>
+    <body>
+        <input type="text">
+        <!--inline script-->
+        <!-- <button onclick="alert('클릭되었습니다.')">클릭</button>-->
+        <button>클릭</button>
+
+        <div class="calculator">
+					<div class="result">결과영역</div>
+          <button>1</button><button>2</button><button>3</button><br>
+					<button>4</button><button>5</button><button>6</button><br>
+					<button>7</button><button>8</button><button>9</button><br>
+					<button>0</button><br>
+					<button calss="plus">+</button>
+					<button class="equal">=</button><br>
+        </div>
+
+				<div class="checkbox">
+					<fieldset>
+						<legend><input type="checkbox">ALL</legend>
+						<input type="checkbox"><span>ONE</span>&nbsp;&nbsp;
+						<input type="checkbox" checked><span>TWO</span>&nbsp;&nbsp;
+						<input type="checkbox"><span>THREE</span>
+					</fieldset>
+				</div>
+
+				<div class="select">
+					<select class="sido">
+						<option selected>시도를 선택하세요</option>
+						<option>서울시</option>
+						<option>경기도</option>
+					</select>
+
+					<select class="sigungu">
+						<option>구를 선택하세요</option> <!--시를 선택하세요-->
+						<option>송파구</option>					<!--제주시-->
+						<option>중구</option>           <!--서귀포시-->
+						<option>강서구</option>
+					</select>
+				</div>
+
+				<div class="keyboard">
+					<input type="text">
+				</div>
+
+				<div class="submit">
+					<form method="get" action="http://www.naver.com">
+						<input type="text" name="t" value="test"><br>
+						<button>전송</button>	<!--input type="submit"과 같음-->
+					</form>
+				</div>
+
+				<div class="a" style="border: 1px solid; padding: 40px; margin: 30px;">
+					<a href="http://www.naver.com">네이버</a>
+				</div>
+    </body>
+</html>
