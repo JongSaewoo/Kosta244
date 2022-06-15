@@ -17,7 +17,7 @@
     <description></description>
     <display-name>FirstServlet</display-name>
     <servlet-name>FirstServlet</servlet-name>
-    <servlet-class>com.my.contorl.FirstServlet</servlet-class>
+    <servlet-class>com.my.control.FirstServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FirstServlet</servlet-name>
@@ -27,7 +27,7 @@
     <description></description>
     <display-name>LifeCycleServlet</display-name>
     <servlet-name>LifeCycleServlet</servlet-name>
-    <servlet-class>com.my.contorl.LifeCycleServlet</servlet-class>
+    <servlet-class>com.my.control.LifeCycleServlet</servlet-class>
     <init-param>
       <param-name>fileName</param-name>
       <param-value>a.txt</param-value>
@@ -41,7 +41,7 @@
     <description></description>
     <display-name>RequestServlet</display-name>
     <servlet-name>RequestServlet</servlet-name>
-    <servlet-class>com.my.contorl.RequestServlet</servlet-class>
+    <servlet-class>com.my.control.RequestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RequestServlet</servlet-name>
@@ -49,19 +49,19 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>responseServlet</display-name>
-    <servlet-name>responseServlet</servlet-name>
-    <servlet-class>com.my.contorl.responseServlet</servlet-class>
+    <display-name>ResponseServlet</display-name>
+    <servlet-name>ResponseServlet</servlet-name>
+    <servlet-class>com.my.control.responseServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>responseServlet</servlet-name>
+    <servlet-name>ResponseServlet</servlet-name>
     <url-pattern>/response</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>LoginServlet</display-name>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.my.contorl.LoginServlet</servlet-class>
+    <servlet-class>com.my.control.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -69,12 +69,52 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>signupServlet</display-name>
-    <servlet-name>signupServlet</servlet-name>
-    <servlet-class>com.my.contorl.signupServlet</servlet-class>
+    <display-name>SignupServlet</display-name>
+    <servlet-name>SignupServlet</servlet-name>
+    <servlet-class>com.my.control.SignupServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>signupServlet</servlet-name>
+    <servlet-name>SignupServlet</servlet-name>
     <url-pattern>/signup</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductListServlet</display-name>
+    <servlet-name>ProductListServlet</servlet-name>
+    <servlet-class>com.my.control.ProductListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductListServlet</servlet-name>
+    <url-pattern>/productlist</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>idDupChkServlet</display-name>
+    <servlet-name>idDupChkServlet</servlet-name>
+    <servlet-class>com.my.control.idDupChkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>idDupChkServlet</servlet-name>
+    <url-pattern>/iddupchk</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewProductServlet</display-name>
+    <servlet-name>ViewProductServlet</servlet-name>
+    <servlet-class>com.my.control.ViewProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewProductServlet</servlet-name>
+    <url-pattern>/viewproduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MoveServlet</display-name>
+    <servlet-name>MoveServlet</servlet-name>
+    <servlet-class>com.my.control.MoveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MoveServlet</servlet-name>
+    <url-pattern>/move</url-pattern>
   </servlet-mapping>
 </web-app>

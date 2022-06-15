@@ -1,17 +1,34 @@
-
 $(function(){
+  //아이디입력객체 찾기
+  let $inputId = $('input[name=id]');
+
   //가입버튼객체찾기
   let $btSubmit = $('button[type=submit]');
 
   //--아이디중복확인버튼 클릭 START--
   let $btIdupchk = $('button.iddupchk');
   $btIdupchk.click(function(){
-    $btSubmit.show();
-  })
+    $.ajax({
+      url: 'http://localhost:8888/back/iddupchk',
+      method: 'get',
+      data: {id: $inputId.val()},
+      success: function(jsonObj){
+        if(jsonObj.status == 1){  //사용가능한 아이디인 경우
+          $btSubmit.show();
+        }else{
+          alert(jsonObj.msg);
+        }
+      },
+      error: function(jqXHR){
+        alert('오류: ' + jqXHR.status);
+      }
+    });
+    
+  });
   //--아이디중복확인버튼 클릭 END--
   
   //--아이디입력란에 포커스 START--
-  let $inputId = $('input[name=id]');
+  // let $inputId = $('input[name=id]');
   $inputId.focus(function(){
     $btSubmit.hide();
   });
