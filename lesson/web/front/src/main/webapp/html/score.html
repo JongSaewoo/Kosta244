@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="../jq/score.js"></script>
+</head>
+<body>
+	<div>
+		<img src="../images/C0001.jpg" width="300">
+	</div>
+	<form action="http://localhost:8888/back/jsp/score.jsp">
+		<input type="radio" name="score" value="1">★☆☆☆☆<br>
+		<input type="radio" name="score" value="2">★★☆☆☆<br>
+		<input type="radio" name="score" value="3" checked>★★★☆☆<br>
+		<input type="radio" name="score" value="4">★★★★☆<br>
+		<input type="radio" name="score" value="5">★★★★★<br>
+		<button>별점주기</button>
+	</form>
+	<div class = "result">
+			이곳은 별점 상세보기 section입니다.
+	</div>
+</body>
+</html>
