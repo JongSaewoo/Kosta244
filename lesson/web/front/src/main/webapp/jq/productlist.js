@@ -40,7 +40,8 @@ $(function () {
 		console.log('arr', arr);
 		let prod_no = arr[arr.length-1].split('.')[0];	//C0001.jpg
 		console.log('prod_no', prod_no);
-		location.href = "http://localhost:8888/back/viewproduct?prod_no=" + prod_no;
+		//location.href = "http://localhost:8888/back/viewproduct?prod_no=" + prod_no;
+		location.href = "/front/html/viewproduct.html?prod_no=" + prod_no;
 	});
 	//--div.td객체 클릭 END--
 });
