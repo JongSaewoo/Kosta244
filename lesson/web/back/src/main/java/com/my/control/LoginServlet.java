@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.my.sql.MyConnection;
 
@@ -32,6 +33,11 @@ public class LoginServlet extends HttpServlet {
 		ResultSet rs = null;
 		//응답결과
 		String result = "{\"status\": 0}";
+		
+		//세션(클라이언트별 객체)얻기
+		HttpSession session = request.getSession();
+		session.removeAttribute("loginInfo");
+		
 		try {
 			con=MyConnection.getConnection();
 			String selectIdNPwdSQL = "SELECT * FROM customer WHERE id=? AND pwd=?";
@@ -41,6 +47,7 @@ public class LoginServlet extends HttpServlet {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {	//마지막 쿼리문의 결과값인 rs행의 다음행이 존재한다면(로그인을 성공)..
 				result = "{\"status\": 1}";
+				session.setAttribute("loginInfo", id);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -117,4 +117,34 @@
     <servlet-name>MoveServlet</servlet-name>
     <url-pattern>/move</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SessionServlet</display-name>
+    <servlet-name>SessionServlet</servlet-name>
+    <servlet-class>com.my.control.SessionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionServlet</servlet-name>
+    <url-pattern>/session</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginStatusServlet</display-name>
+    <servlet-name>LoginStatusServlet</servlet-name>
+    <servlet-class>com.my.control.LoginStatusServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginStatusServlet</servlet-name>
+    <url-pattern>/loginstatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.my.control.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
 </web-app>
