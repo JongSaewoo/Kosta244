@@ -33,7 +33,7 @@ public class ViewProductServlet extends HttpServlet {
 			Map<String, Object> map = new HashMap<>();
 			map.put("status", 1);
 			map.put("p", p);
-			
+
 			//JSON라이브러리(JACKSON) 활용
 			//result = "{\"status\":1, \"p\":{\"prod_no\": \"" + p.getProdNo() + "\"} }";
 			ObjectMapper mapper = new ObjectMapper();

@@ -16,5 +16,4 @@ public class LogoutServlet extends HttpServlet {
 		session.removeAttribute("loginInfo"); //세션객체는 존재, 속성제거
 		//session.invalidate();	//세션객체 제거
 	}
-
 }
