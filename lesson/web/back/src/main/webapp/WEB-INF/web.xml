@@ -147,4 +147,44 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddCartServlet</display-name>
+    <servlet-name>AddCartServlet</servlet-name>
+    <servlet-class>com.my.control.AddCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCartServlet</servlet-name>
+    <url-pattern>/addcart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewCartServlet</display-name>
+    <servlet-name>ViewCartServlet</servlet-name>
+    <servlet-class>com.my.control.ViewCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewCartServlet</servlet-name>
+    <url-pattern>/viewcart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddOrderServlet</display-name>
+    <servlet-name>AddOrderServlet</servlet-name>
+    <servlet-class>com.my.control.AddOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddOrderServlet</servlet-name>
+    <url-pattern>/addorder</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewOrderServlet</display-name>
+    <servlet-name>ViewOrderServlet</servlet-name>
+    <servlet-class>com.my.control.ViewOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewOrderServlet</servlet-name>
+    <url-pattern>/vieworder</url-pattern>
+  </servlet-mapping>
 </web-app>
