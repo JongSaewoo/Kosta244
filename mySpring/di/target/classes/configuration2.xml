@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<bean name="p" class="com.my.dto.Product">	<!-- bean 객체 : 스프링컨테이너로 관리되는 객체 -->
+		<property name="prodNo" value="C0001"/>
+		<property name="prodName" value="아메리카노"/>
+		<property name="prodPrice" value="1000"/>
+	</bean>
+	
+	<context:component-scan base-package="com.my.repository"/>
+	<context:component-scan base-package="com.my.service"/>
+	
+	<!-- 스프링컨테이너(dataSource bean)를 통해 관리 될 jdbc연결 소스 생성 -->
+	<bean name="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="hr"/>
+		<property name="password" value="hr"/> 
+	</bean>
+	
+	<bean name="dataSource2" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="hr"/>
+		<property name="password" value="hr"/> 
+	</bean>
+</beans>

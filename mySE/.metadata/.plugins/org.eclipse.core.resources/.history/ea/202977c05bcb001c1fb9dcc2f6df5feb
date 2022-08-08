@@ -1,0 +1,22 @@
+package com.my.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.my.dto.Product;
+
+public class ProductListRepository {
+	private List<Product> products;
+	public ProductListRepository() {
+		products = new ArrayList<>(); //10개의 index가 제공
+	}
+	public ProductListRepository(int size) {
+		products = new ArrayList<>(size); //size개수의 index가 제공
+	}
+	public void insert(Product product) {
+		products.add(product);
+	}
+	public List selectAll() {
+		return products;
+	}
+}

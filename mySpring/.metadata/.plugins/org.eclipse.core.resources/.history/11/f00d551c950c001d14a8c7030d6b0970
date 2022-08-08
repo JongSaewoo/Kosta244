@@ -1,0 +1,22 @@
+package com.my.repository;
+
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@RunWith(SpringRunner.class)
+//Spring 컨테이너용 XML파일 설정
+@ContextConfiguration(locations={
+		"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml"})
+public class ProductOracleRepositoryTest {
+	@Autowired
+	private ProductRepository repository;
+	
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

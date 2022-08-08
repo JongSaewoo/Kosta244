@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/viewproduct.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="../jq/init.js"></script>
+  <script src="../jq/layout.js"></script>
+  <script src="../jq/viewproduct.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1 class="logo">
+      <a href="css_js_layout.html">코스타벅스커피 코리아</a>
+    </h1>
+    <nav>
+      <!--메뉴-->
+      <a href="login.html">로그인</a>
+      <a href="signup.html">가입</a>
+      <a href="productlist.html">상품</a>
+      <a href="viewcart.html">장바구니</a>
+    </nav>
+  </header>
+  <section>
+    <!--본문-->
+    <div class="articles">
+      <article>
+        <div class="viewproduct">
+          <img src="" alt="">
+          <div class="detail">
+            <ul>
+              <li>상품번호: <span class="prod_no"></span></li>
+              <li>상품명:<span class="prod_name"></span></li>
+              <li>상품가격: <span class="prod_price"></span></li>
+
+              <li>상품제조일자:<span class="prod_mfd"></span></li>
+              <li>상품상세: <span class="prod_info"></span></li>
+              <li>수량 :
+                <input type="number" max="9" min="1" value="1" 
+                name="quantity">
+              </li>
+              <li><button>장바구니 넣기</button>
+            </ul>
+          </div>
+          <div class="result" style="display:none;width:300px; border:1px solid;">
+            <button class="productlist">상품목록</button>
+            <button class="viewcart">장바구니보기</button>
+          </div>
+        </div>
+      </article>
+      <article>본문내용2</article>
+    </div>
+    <aside>광고1, 광고2
+      <div>
+        <a href="">
+          <img src="https://image.istarbucks.co.kr/upload/banner/floatingbnr/1iqO76_20211115094854583.png"
+            alt="2021년 2차 바리스타 공개채용" class="pc-badge">
+        </a>
+      </div>
+      <div><a href="">
+          <img src="https://image.istarbucks.co.kr/upload/banner/floatingbnr/1B4Upb_20211029180059437.png"
+            alt="PLCC 스타벅스 현대카드 11월 프로모션" class="pc-badge">
+        </a>
+      </div>
+    </aside>
+  </section>
+  <footer>
+    <!--맺음말-->
+    <aside>
+      <a class="c_00b050" href="">개인정보처리방침</a>
+      <ul class="copy_menu">
+        <li>사업자등록번호 : XXXX</li>
+        <li>(주)코스타벅스커피 코리아 대표이사 : 오문정</li>
+        <li>TEL : 1522-1234</li>
+        <li>
+          <address>test@kosta.com</address>
+        </li>
+      </ul>
+      <span class="en">ⓒ 2021 Starbucks Coffee Company. All Rights Reserved.</span>
+    </aside>
+  </footer>
+</body>
+
+</html>

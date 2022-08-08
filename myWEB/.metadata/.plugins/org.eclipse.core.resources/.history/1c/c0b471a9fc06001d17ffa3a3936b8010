@@ -1,0 +1,19 @@
+package com.my.service;
+
+import com.my.dto.Customer;
+import com.my.exception.FindException;
+import com.my.repository.CustomerRepository;
+
+public class CustomerService {
+	private CustomerRepository repository;
+	public CustomerService() {
+		this.repository = repository;
+	}
+	public Customer login(String id, String pwd) throws FindException {
+		Customer c = repository.selectById(id);
+		if(!c.getPwd().equals(pwd)) {
+			throw new FindException();
+		}
+		return c;
+	}
+}

@@ -1,0 +1,22 @@
+
+public class Practice {
+	
+
+	public static void main(String[] args) {
+		
+		class A{
+			int i = 10;
+			void ma() {
+				System.out.println(i);
+			}
+		}
+		class B extends A{
+			int i = 20;
+			void mb() {
+				int i = 30;
+				System.out.println(A.i);
+			}
+		}
+	}
+
+}

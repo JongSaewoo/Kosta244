@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<context:component-scan base-package="com.my.dto"></context:component-scan>
+	<context:component-scan base-package="com.my.repository"></context:component-scan>
+	
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver">
+		</property>
+		<property name="jdbcUrl"
+			value="jdbc:oracle:thin:@localhost:1521:xe">
+		</property>
+		<property name="username" value="hr" />
+		<property name="password" value="hr" />
+		<property name="minimumIdle" value="3" />
+	</bean>
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:mybatisConf/mybatis-config.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<context:component-scan base-package="com.my.service"></context:component-scan>
+	
+	<mvc:annotation-driven/> <!-- 컨트롤러가 완벽한 webApplication이 되기위해서는 MVC태그가 필요 -->
+	<context:component-scan base-package="com.my.control"></context:component-scan>
+</beans>

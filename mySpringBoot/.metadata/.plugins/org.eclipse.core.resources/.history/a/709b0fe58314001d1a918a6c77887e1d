@@ -1,0 +1,123 @@
+package com.my.repository;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+
+import com.my.dto.Board;
+
+@SpringBootTest
+class BoardRepositoryTest {
+	@Autowired
+	BoardRepository repository;
+	
+	Logger logger = LoggerFactory.getLogger(getClass());
+	
+	//(viewBoard)게시글 유효 테스트
+	@Test
+	void testFindByIdValid() {
+		Long boardNo = 1L;
+		//게시글번호의 게시글 조회한다
+		Optional<Board> optB1 = repository.findById(boardNo);
+		assertTrue(optB1.isPresent());
+	}
+	
+	//(viewBoard)게시글 무효 테스트
+	@Test
+	void testFindByIdInValid() {
+		Long boardNo = 1L;
+		Optional<Board> optB1 = repository.findById(boardNo);
+		assertFalse(optB1.isPresent());
+	}
+	
+	//(writeBoard)
+	@Test
+//	@Transactional // 테스트 후 롤백함
+	void testWrite() {
+		Board b = new Board();
+		b.setBoardTitle("title_t4");
+		b.setBoardContent("content_t4");
+		b.setBoardId("id4");
+//		b.setBoardParentNo(0);
+		repository.save(b);
+	}
+	
+	@Test
+//	@Transactional // 테스트 후 롤백함
+	void testReply() {
+		Board b = new Board();
+		
+		b.setBoardParentNo(1L); //1번글의 답글이란 의미
+		b.setBoardTitle("1_re_title");
+		b.setBoardContent("1_re_content");
+		b.setBoardId("id2");
+		repository.save(b);
+	}
+	
+	@Test
+//	@Transactional // 테스트 후 롤백함
+	void testModify() {
+//		Board b = new Board();
+//		b.setBoardNo(2L);
+//		b.setBoardContent("글2 내용 수정");
+//		b.setBoardId("id3");
+//		repository.save(b);
+		
+		//find()로 DB에 찾아온 값을 optB에 담고 optB에 해당하는 board의 모든 객체값을
+		// save하면 그때서야 DB의 값과 자바 엔터티의 값의 차이를 인지하고
+		// 다른 컬럼값만 Update(save())함 즉, @DynamicUpdate 효과를 볼 수 있음
+		Optional<Board> optB = repository.findById(3L);
+		optB.ifPresent((b)->{
+			b.setBoardContent("글3내용수정");
+			repository.save(b);
+		});
+	}
+	
+	@Test
+	void testUpdateViewCount() {
+		Long boardNo = 3L;
+		Optional<Board> optB = repository.findById(boardNo);
+		optB.ifPresent((b)->{
+			logger.error(b.toString());
+			int oldViewCount = b.getBoardViewcount();
+			int newViewCount = oldViewCount + 1;
+			b.setBoardViewcount(newViewCount);
+			repository.save(b);
+			
+			int expectedNewViewCount = newViewCount;
+			assertEquals(expectedNewViewCount, repository.findById(boardNo).get().getBoardViewcount());
+		});
+	}
+	
+	@Test
+	void testDelete() {
+		Long boardNo = 4L;
+		repository.deleteReply(boardNo);
+		
+		repository.deleteById(boardNo);
+		
+		assertFalse(repository.findById(boardNo).isPresent());
+	}
+	
+	@Test
+	void testFindAllPage() {
+		int currentPage = 1;
+		Pageable pageable = PageRequest.of(currentPage, 3); //, Direction.ASC
+		List<Board> list = repository.findAll(pageable);
+		list.forEach((b)->{
+			logger.error(b.toString());
+		});
+	}
+}

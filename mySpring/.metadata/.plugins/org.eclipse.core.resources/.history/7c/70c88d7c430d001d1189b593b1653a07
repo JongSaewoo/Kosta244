@@ -1,0 +1,16 @@
+package com.my.dto;
+
+import java.util.Date;
+
+public class Board {
+	private int level;  //글레벨 : 1-원글, 2-답글, 3-답글의 답글, 4-답글의 답글의 답글
+	private int boardNo;  //게시글 번호
+	private int boardParentNo;
+	
+	private String boardTitle;
+	private String boardContent;
+	private Date boardDt;
+	
+	private String boardId;  // ? private Customer boardC;
+	private int boardViewcount;
+}

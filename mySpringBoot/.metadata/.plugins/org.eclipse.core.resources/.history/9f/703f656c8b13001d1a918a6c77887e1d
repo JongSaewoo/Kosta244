@@ -1,0 +1,24 @@
+server.port=9998
+server.servlet.context-path=/jpa
+#spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.hikari.driver-class-name=net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+spring.datasource.hikari.jdbc-url=jdbc:log4jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.hikari.username=hr
+spring.datasource.hikari.password=hr
+spring.datasource.hikari.minimum-idle=2
+
+#스프링 부트  로그레벨 TRACE < DEBUG < INFO < WARN < ERROR
+logging.level.root=info
+logging.charset.console=UTF-8
+#logging.charset.file=UTF-8
+#logging.file.name=./log/my.log
+logging.level.org.hibernate=info
+
+spring.jpa.database=oracle
+#spring.jpa.hibernate.ddl-auto=create를 할경우 컬럼을 재정의할때 셈플데이터가 다 날라감
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.generate-ddl=true 
+spring.jpa.show-sql: true
+spring.jpa.database-platform: org.hibernate.dialect.Oracle10gDialect
+
+

@@ -1,0 +1,16 @@
+package gui;
+
+import javax.swing.JFrame;
+
+public class Race {
+	private JFrame jf;
+	public Race() {
+		jf = new JFrame("달리기");
+		jf.setSize(500, 300);
+		jf.setVisible(true);
+	}
+	public static void main(String[] args) {
+		new Race();
+
+	}
+}

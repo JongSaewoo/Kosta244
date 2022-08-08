@@ -1,0 +1,40 @@
+package com.my.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+import com.my.dto.Board;
+
+public interface BoardRepository extends CrudRepository<Board, Long> {
+	//JPA도움을 받는 CRUD 레포지토리 인터페이스를 상속
+	// 첫번째인자는 우리가 사용할 엔티티(Board), 두번째 인자는 해당 엔티티내의 자료를 식별할
+	// 컬럼의 자료형(int -> Integer), 즉 제네릭안에 인자는 참조형으로 써야만한다
+		
+	List<Board> findAll(org.springframework.data.domain.Pageable paging);
+
+	@Query(value = "SELECT *\r\n"
+				 + "FROM (\r\n"
+				 + "  SELECT rownum r, a.*\r\n"
+				 + "  FROM (SELECT level, \r\n"
+				 + "               board_no, board_parent_no, board_title, board_content, board_id, board_viewcount\r\n"
+				 + "               ,board_dt\r\n"
+				 + "          FROM board_jpa \r\n"
+				 + "          START WITH board_parent_no = 0\r\n"
+				 + "          CONNECT BY PRIOR board_no = board_parent_no\r\n"
+				 + "          ORDER SIBLINGS BY board_no DESC\r\n"
+				 + "  ) a\r\n"
+				 + ")\r\n"
+				 + "WHERE r BETWEEN ?1 AND ?2", nativeQuery = true)
+	List<Board> findByPage(int startRow, int endRow);
+	
+	@Query(value = "DELETE FROM board_jpa\r\n"
+			   + "  WHERE board_no IN (SELECT board_no\r\n"
+			   + "                     FROM board_jpa\r\n"
+			   + "                     START WITH board_parent_no = ?1\r\n"
+			   + "                     CONNECT BY PRIOR board_no = board_parent_no)", nativeQuery = true)
+	//@Query어노테이션과 nativeQuery 속성을 true로 주면 jpa가 제공하는 메소드 sql이아닌
+	// 우리가 지정한 sql문의 메소드를 직접 만들어 쓸 수 있다.
+	void deleteReply(Long boardNo);
+}

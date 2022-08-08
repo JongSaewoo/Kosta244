@@ -1,0 +1,77 @@
+package com.my.dto;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+@Component  // Board DTO가 잘 실행되는지 간단하게 테스트하기위해 설정
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter @Getter
+@EqualsAndHashCode(of= {"boardNo"})  
+//다른객체와 다른 혹은 같은 객체인지 Equals,Hash를 사용하지만, 모든 멤버변수를 쓸필요없이
+//다른지 같은지 기준이 되는 boardNo 멤버변수만을 of= 으로 설정한다 
+@ToString
+//@Data // 위 어노테이셔들을 한번에 다 생성해줌, 하지만 of=로 세세한설정을 못하므로 별로 권장하지않음 
+
+@Entity
+@Table(name = "board_jpa")
+@SequenceGenerator(name = "boardjpa_seq_generator",
+				   sequenceName = "board_jpa_seq",
+				   initialValue = 1,
+				   allocationSize = 8
+)
+@DynamicInsert
+//@DynamicUpdate
+public class Board {
+	@Transient //테이블에 컬럼생성 방지
+	private int level;  //글레벨 : 1-원글, 2-답글, 3-답글의 답글, 4-답글의 답글의 답글
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,
+				    generator = "boardjpa_seq_generator") //@SequenceGenerator를 boardNo에 사용
+	@Column(name = "board_no")
+	private int boardNo;  //게시글 번호
+	
+	@Column(name = "board_parent_no")
+	private int boardParentNo;
+	
+	@Column(name = "board_title")
+	private String boardTitle;
+	
+	@Column(name = "board_content")
+	private String boardContent;
+	
+	@JsonFormat(pattern = "yy/MM/dd", timezone = "Asia/Seoul")
+	@Column(name = "board_dt")
+	@ColumnDefault(value = "SYSDATE")
+	private Date boardDt;
+	
+//	@NonNull //null로 설정(ex: setBoardId(null) 또는 new Board(~~~, null, ~~)되면 NullPointerException 예외발생시킴 
+	@Column(name = "board_id")
+	private String boardId;  // ? private Customer boardC;
+	
+	@Column(name = "board_viewcount")
+	private int boardViewcount;
+}

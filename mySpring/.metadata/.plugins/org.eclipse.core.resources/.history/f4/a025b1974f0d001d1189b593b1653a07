@@ -1,0 +1,5 @@
+package com.my.repository;
+
+public interface BoardRepository {
+
+}

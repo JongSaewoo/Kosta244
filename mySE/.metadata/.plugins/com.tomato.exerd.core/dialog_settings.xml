@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.tomato.exerd.core.wizard.NewEXerdWizard">
+	</section>
+	<section name="solution">
+	</section>
+	<section name="solutionSelectionDialog">
+		<item key="applyScope" value="1"/>
+	</section>
+	<section name="com.tomato.exerd.diagramwizard.DiagramWizard">
+		<item key="method" value="schema"/>
+	</section>
+</section>

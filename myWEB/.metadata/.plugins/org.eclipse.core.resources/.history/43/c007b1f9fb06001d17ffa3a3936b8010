@@ -1,0 +1,7 @@
+package com.my.service;
+
+public class CustomerService {
+	public String login(String id, String pwd) {
+		
+	}
+}

@@ -1,0 +1,20 @@
+server.port=9999
+server.servlet.context-path:/demo1
+#spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.hikari.driver-class-name=net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+spring.datasource.hikari.jdbc-url=jdbc:log4jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.hikari.username=hr
+spring.datasource.hikari.password=hr
+spring.datasource.hikari.minimum-idle=2
+
+#스프링 부트  로그레벨 TRACE < DEBUG < INFO < WARN < ERROR
+#logging.level.root=warn : 전체로깅레벨 지정 
+#logging.level.com.my.control=debug : 하위패키지에 대한 각 로깅레벨 지정
+#logging.level.com.my.repository=info
+logging.level.root=info  
+logging.charset.console=UTF-8
+logging.charset.file=UTF-8
+logging.file.name=./log/my.log
+logging.logback.rollingpolicy.max-file-size=1KB
+logging.logback.rollingpolicy.max-history=1
+

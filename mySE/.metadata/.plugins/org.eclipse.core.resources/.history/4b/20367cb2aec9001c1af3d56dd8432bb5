@@ -1,0 +1,12 @@
+
+public class Practice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int score = 10;
+		String result = null;
+		result = score>=20?"합격":"불합격";
+		System.out.println(result);
+	}
+
+}

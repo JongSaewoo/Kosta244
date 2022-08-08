@@ -1,0 +1,49 @@
+package com.my.repository;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.my.dto.Board;
+import com.my.exception.FindException;
+
+@SpringBootTest
+class BoardRepositoryTest {
+	@Autowired
+	BoardRepository repository;
+	
+	//(viewBoard)게시글 유효 테스트
+	@Test
+	void testFindByIdValid() {
+		int boardNo = 1;
+		//게시글번호의 게시글 조회한다
+		Optional<Board> optB1 = repository.findById(boardNo);
+		assertTrue(optB1.isPresent());
+	}
+	
+	//(viewBoard)게시글 무효 테스트
+	@Test
+	void testFindByIdInValid() {
+		int boardNo = 1;
+		Optional<Board> optB1 = repository.findById(boardNo);
+		assertFalse(optB1.isPresent());
+	}
+	
+	//(writeBoard)
+	@Test
+//	@Transactional // 테스트 후 롤백함
+	void testWrite() {
+		Board b = new Board();
+		b.setBoardTitle("title_t2");
+		b.setBoardContent("content_t2");
+		b.setBoardId("id2");
+//		b.setBoardParentNo(0);
+		repository.save(b);
+	}
+}

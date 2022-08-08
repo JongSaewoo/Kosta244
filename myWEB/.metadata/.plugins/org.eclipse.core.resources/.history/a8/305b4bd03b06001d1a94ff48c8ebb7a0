@@ -1,0 +1,5 @@
+package com.my.control;
+
+public interface Controller {
+
+}

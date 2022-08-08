@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    div.ziplist>ul {
+      list-style-type: none;
+      padding-left: 0px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $('div.ziplist>ul>li').click(function () {
+        $(window.opener.document).find('.zipcode').val($(this).find('span.zipcode').text());
+        $(window.opener.document).find('.addr1').val($(this).find('span.addr1').text());
+        window.self.close();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <form class="zipsearch" action="http://localhost:8888/back/searchzip">
+    <input type="search" name="word"><button>검색</button>
+  </form>
+  <div class="ziplist">
+    <ul>
+      <li><span class="zipcode">03154</span><span class="addr1">서울특별시 종로구 세종대로 지하 172 (세종로, 5호선광화문역)</span></li>
+      <li><span class="zipcode">03172</span><span class="addr1">서울특별시 종로구 세종대로 지하 175 (세종로, 세종이야기)</span></li>
+      <li><span class="zipcode">03172</span><span class="addr1">서울특별시 종로구 세종대로 지하 189 (세종로, 세종로지하주차장)</span></li>
+      <li><span class="zipcode">03186</span><span class="addr1">서울특별시 종로구 세종대로 145-2 (세종로, 가로판매대)</span></li>
+    </ul>
+  </div>
+</body>
+
+</html>

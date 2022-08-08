@@ -1,0 +1,14 @@
+package com.my.repository;
+
+import com.my.dto.Customer;
+import com.my.exception.FindException;
+
+public class CustomerOracleRepository implements CustomerRepository {
+
+	@Override
+	public Customer selectByIdAndPwd(String id, String pwd) throws FindException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

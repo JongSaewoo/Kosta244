@@ -1,0 +1,16 @@
+package com.my.repository;
+
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class ProductOracleRepositoryTest {
+	@Autowired
+	private ProductOracleRepository repository;
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

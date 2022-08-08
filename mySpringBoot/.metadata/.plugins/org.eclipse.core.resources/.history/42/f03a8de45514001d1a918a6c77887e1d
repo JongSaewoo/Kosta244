@@ -1,0 +1,21 @@
+package com.my;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+//@ComponentScan 
+//pom.xml에서 
+	//<groupId>com.my</groupId>
+	//<artifactId>backboardboot</artifactId>
+	//<version>0.0.1-SNAPSHOT</version>
+	//<packaging>war</packaging>
+// 스프링부트에선 이 부분이 자동 ComponentScan 해줌
+public class BackboardbootApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BackboardbootApplication.class, args);
+	}
+
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>uploadresult.html</title>
+<style>
+  div.list{
+    border:1px solid; 
+    margin:10px;
+  }
+  div.list>ul{
+    list-style-type: none;
+    padding-left: 10px;
+  }
+  div.list>ul>li>img{
+    max-width: 100px;
+  }
+  div.list>ul>li>a{
+    text-decoration: none;
+  }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function(){	//화면에 바로보여지자마자 (첫 화면로딩)
+    $.ajax({
+        url: '/back4/uploadlist',	//uploadlist를 요청하면 json문자형식으로 응답됨, 없으면 공백으로 응답
+        // data : 'opt=1',
+        success:function(jsonObj){	//응답에 성공하면(uploadlist에서 files에 요청한 이름의 파일이 존재하면)
+			// 요청성공하면 ex)[{"name":"C0001.jpg","contentType":"image/jpeg"},{"name":"C0002.jpg","contentType":"image/jpeg"}]
+			// 이런내용이 응답됨
+			let $ulObj = $('div.list>ul');
+			let liHtml = '';
+
+			$(jsonObj).each(function(index, info){ //info는 요쳥된 json문자열을 포함하는 객체
+				liHtml += '<li>'; 
+				
+				if(info.contentType.includes("image")){	//info의 형식을 이미지파일로 지정함
+					liHtml += `<img id="${info.name}">`;
+				}else{
+					liHtml += `<a href="/back4/download?filename=${info.name}" download>${info.name}</a>`;
+				}
+				liHtml += '</li>';
+			});
+			//ex)위 .each과정이끝나면 <li>[{"name":"C0001.jpg","contentType":"image/jpeg"}</li>
+			//						 <li>{"name":"C0002.jpg","contentType":"image/jpeg"}]</li>
+
+			$ulObj.html(liHtml);	//'div.list>ul'의 하위요소로 끼어넣기함
+		},
+		complete: function(jqXHR){	//complete프로퍼티는 ajax의 success프로퍼티나 
+									//error가 종료되면 자동 실행함
+			showImage();
+			
+		}
+    });
+	/*---두번째 div에서  모든 img태그 보여주기 START--*/
+	function showImage(){
+		let $img = $('div.list>ul>li>img');
+			$img.each(function(i, element){
+				let imgId = $(element).attr('id');	
+				$.ajax({
+					url: '/back4/download?filename='+imgId,
+					 cache:false,
+			         xhrFields:{  //xhrFields에서 responseType타입을 'blob'으로 지정하는 과정은 꼭 필수!
+			            responseType: 'blob'
+			        } , 
+			        success: function(responseData, textStatus, jqXhr){
+			        	let contentType = jqXhr.getResponseHeader("content-type");
+			        	let contentDisposition = decodeURI(jqXhr.getResponseHeader("content-disposition"));
+			       		var url = URL.createObjectURL(responseData);
+			       		$(element).attr('src', url);  //응답내용 url의 내용이 img태그의 src속성내용에 들어감
+													  //<img src=' url '>
+			        },
+			        error:function(){
+			        }
+				}); //end $.ajax
+			});//end each
+			/*---두번째 div에서  모든 img태그 보여주기 END--*/
+		}
+});
+</script>
+</head>
+<body>
+<h1>업로드 목록보기</h1>
+
+<div class="list" >
+  <h3>일반파일은 클릭하면 다운로드되도록 a태그로 만들고, 이미지파일은 img태그에 보여줍니다</h3>
+
+ <ul>
+ </ul>
+</div>
+
+</body>
+</html>

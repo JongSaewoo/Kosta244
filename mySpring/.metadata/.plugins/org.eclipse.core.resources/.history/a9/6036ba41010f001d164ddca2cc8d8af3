@@ -1,0 +1,134 @@
+package com.my.control;
+
+import java.io.File;
+import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.my.dto.Board;
+import com.my.dto.PageBean;
+import com.my.dto.ResultBean;
+import com.my.exception.AddException;
+import com.my.exception.FindException;
+import com.my.service.BoardService;
+
+@Controller
+public class BoardController {
+	private Logger logger = Logger.getLogger(getClass());
+	
+	@Autowired
+	private BoardService service;
+	
+	@Autowired
+	private ServletContext sc;
+	
+	@GetMapping("boardlist")
+	@ResponseBody
+	public ResultBean<PageBean<Board>> list(@RequestParam(required = false, defaultValue = "1")int currentPage) {
+		//currentPage인자가 전달 안됬을경우(required = false) 디폴트응답값(defaultValue = "1")이 전달된다 
+		
+		ResultBean<PageBean<Board>> rb = new ResultBean<>();
+		try {
+			PageBean<Board> pb = service.boardList(currentPage);
+			rb.setStatus(1);
+			rb.setT(pb);
+			
+		}catch(FindException e) {
+			e.printStackTrace();
+			rb.setStatus(0);
+			rb.setMsg(e.getMessage());
+		}
+		
+		return rb;
+	}
+	
+	@GetMapping("searchboard")
+	@ResponseBody
+	public ResultBean<PageBean<Board>> search(
+			@RequestParam(required = false, defaultValue = "1")int currentPage, 
+			@RequestParam(required = false, defaultValue = "")String word) {
+		ResultBean<PageBean<Board>> rb = new ResultBean<>();
+		try {
+			PageBean<Board> pb;
+			if("".equals(word)) {
+				pb = service.boardList(currentPage);
+			}else {
+				pb = service.searchBoard(word, currentPage);
+			}
+			rb.setStatus(1);
+			rb.setT(pb);
+		} catch (FindException e) {
+			e.printStackTrace();
+			rb.setStatus(0);
+			rb.setMsg(e.getMessage());
+		}
+		return rb;
+	}
+	
+	@GetMapping("viewboard")
+	@ResponseBody
+	public ResultBean<Board> viewBoard(int boardNo) {
+		ResultBean<Board> rb = new ResultBean<>();
+		try {
+			Board b = service.veiwBoard(boardNo);
+			rb.setStatus(1);
+			rb.setT(b);
+		} catch (FindException e) {
+			e.printStackTrace();
+			rb.setStatus(0);
+			rb.setMsg(e.getMessage());
+		}
+		return rb;
+	}
+	
+	@PostMapping("/writeboard")
+	@ResponseBody
+	public ResponseEntity<?> write(
+			@RequestPart(required = false) List<MultipartFile> letterFiles
+			,@RequestPart(required = false) MultipartFile imageFile
+			,Board board
+			,String greeting
+			,HttpSession session){
+		
+		logger.info("요청전달데이터 title=" + board.getBoardTitle() + ", content=" + board.getBoardContent());
+		logger.info("파일개수 : letterFiles.size()=" + letterFiles.size());
+		logger.info("파일크기 : imageFile.getSize()=" + imageFile.getSize() + ", 업로드된 파일 이름 : imageFile.getOriginalFileName()=" + imageFile.getOriginalFilename());
+		logger.info(greeting);
+		
+		//게시글 내용 DB에 저장
+		try {
+			//String loginedId = (String)session.getAttribute("loginedId");
+			//------샘플데이터 id------
+			String loginedId = "id1";
+			//----------------------
+			board.setBoardId(loginedId);
+			service.writeBoard(board);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (AddException e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		//파일 경로 생성
+//		String saveDirectory = "c:\\files";
+		sc.getInitParameter("filePath");
+		if ( ! new File(saveDirectory).exists()) {
+			logger.info("업로드 실제경로생성");
+			new File(saveDirectory).mkdirs();
+		}
+
+	}
+}

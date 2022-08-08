@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" /> <!-- 오라클에서의 NULL값을 자바에서도 NULL값으로 처리하기 위한 매핑 -->
+		<setting name="mapUnderscoreToCamelCase" value="true" /> <!-- 자바에서의 prodNo과 오라클에서의 prod_no를 매핑 -->
+	</settings>
+	<typeAliases>
+		<typeAlias type="com.my.dto.Board" alias="Board" /> 
+	</typeAliases>
+   
+  <mappers>
+    <mapper resource="mybatisConf/BoardMapper.xml"/>
+  </mappers>
+</configuration>

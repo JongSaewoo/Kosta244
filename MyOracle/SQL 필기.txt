@@ -1,0 +1,439 @@
+파일저장소를 사용하는 경우 
+- 개발자가 구현해야할것이 많아짐
+- 자료안정성 보장X
+
+오라클에서는 스키마가 계정별로 1개씩만 제공됨 
+다른 DBS에서는 스키마가 여러개 제공됨 
+
+객체종류 : 테이블
+  	   뷰
+	   인덱스
+	   시퀀스
+	   시노님
+
+sqlplus 명령어 
+ - conn system/KOSTA		   	계정에 접속 
+ - alter user hr account unlock;   	언락하기 
+ - alter user hr identified by hr; 	비밀번호 설정 / 변경
+ - SELECT * FROM TAB;			계정이 갖고있는 테이블 목록
+ - DESC employees;    테이블이름 	테이블 구조 
+ - show user  				현재 작업중인 사용자 
+SQL문법 
+ - DDL(정의어) : 객체 생성, 객체 구조변경, 객체 제거  
+   Data Definition Language
+ - DML(조작어) : 데이터 추가, 수정, 삭제 
+ - Query : 검색  SELECT
+ - DCL : 권한 설정, 제거
+   Data Control Language
+ - DTL : 트랜잭션 완료, 복구 
+   Data Transaction Language
+
+오라클 sql에서는 대소문자 구분하지 않음 
+다만, 기본 문법용 예약어는 대문자로 쓰는것이 가독성 좋음
+컬럼, 테이블명은 소문자 
+
+SELECT 구문   []생략가능함
+구성
+ SELECT
+ FROM  [JOIN  ON]
+ [WHERE] : 조건
+ [GROUP BY] : ~별(ex:부서별)
+ [HAVING]
+ [ORDER BY] : 오름,내림 차순으로 정리할때
+
+ 처리순서 
+ FROM -> JOIN ON -> WHERE -> GROUT BY -> HAVING 
+ l--------------------SELECTION---------------l
+ l--------------------행찾기 -----------------l
+-> SELECT -> ORDER BY
+ l----PROJECTION------l
+ l----출력할 컬럼찾기-l
+
+
+1행씩 찾아가면서 조건에 비교하여 출력한 것 
+SELECT 컬럼명, 컬럼명... | *        *는 모든 컬럼을 사용한다. |는 OR을 의미 
+FROM 테이블명 
+--------------------------------------------------------------------
+컬럼명의 별칭주기 : 헤딩 바꾸기 --> 한칸띄우고 별칭주기 --> 헤딩 바꾸는 이유는 보안처리때문 
+SELECT employee_id, first_name, last_name
+FROM employees;
+
+SELECT employee_id 번호, first_name 이름, last_name 성
+FROM employees;
+
+SELECT employee_id 사원 번호, first_name 사원 이름, last_name 성      ---공백이들어가면 못읽음 
+FROM employees;
+
+SELECT employee_id "사원 번호", first_name "사원 이름", last_name 성  ---공백을 주려면 ""로 묶기
+FROM employees;
+
+SELECT employee_id "사원 번호", first_name "사원 이름",   --sal이 자동으로 대문자로 나옴 
+       salary sal
+FROM employees;
+
+SELECT employee_id "사원 번호", first_name "사원 이름",   --헤딩에 소문자주려면 ""로 묶기 
+       salary "Sal"
+FROM employees;
+--------------------------------------------------------------------
+컬럼값 결합하기 ||  ''작은따옴표는 문자열일때   ||가 자바에서의 + 느낌. 문자열 결합 
+오라클에서는 ""를 별칭줄때만 쓴다 
+SELECT employee_id, first_name, last_name,
+       first_name ||'-'|| last_name
+FROM employees;
+--------------------------------------------------------------------
+컬럼값 연산하기
+SELECT employee_id,
+       salary 기본급,
+       commission_pct 수당률,
+       salary + salary * commission_pct 실급여,
+       salary + salary * NVL(commission_pct, 0) 실급여2
+FROM employees;
+
+null -> 아무값도 아니다. 
+null을 사칙연산에 참여시키면 null이 답으로 나옴 
+NVL함수(A, B) -> 첫번째 인자값(A)이 null이면 2번째 인자값(B)으로 바뀜 
+--------------------------------------------------------------------
+조건에 만족하는 행찾기
+SELECT employee_id, salary
+FROM employees;
+
+SELECT employee_id, salary
+FROM employees
+WHERE salary*12 >= 100000;  급여가 3000이상인 사원들의 사번, 급여출력
+
+WHERE에는 조건이 들어감 -> 비교연산자가들어감 
+
+SELECT employee_id, first_name, last_name
+FROM employees
+WHERE first_name = 'William';
+
+SELECT employee_id, first_name, last_name
+FROM employees
+WHERE first_name <> 'William';
+
+-급여가 10000이상이고 15000이하인 사원들의 사번, 이름, 부서번호, 급여를 출력하시오 
+SELECT employee_id, first_name, department_ID, salary
+FROM employees
+WHERE salary >= 10000 and salary <=15000;
+
+SELECT employee_id, first_name, department_ID, salary
+FROM employees
+WHERE salary BETWEEN 10000 AND 15000;
+
+-30, 70, 80번 부서의 사원들 사번, 이름, 부서번호, 급여를 출력하시오 
+SELECT employee_id, first_name, department_id, salary 
+FROM employees
+WHERE department_id = 30 or department_id = 70 or department_id = 80
+
+SELECT employee_id, first_name, department_id, salary 
+FROM employees
+WHERE department_id IN (30, 70, 80);
+
+-30, 70, 80번 부서의 사원 중 급여가 10000이상이고 15000이하인 사원들의 사번,이름 부서번호,급여 출력
+SELECT employee_id, first_name, department_id, salary 
+FROM employees
+WHERE (department_id = 30 or department_id = 70 or department_id) = 80 AND (salary >= 10000 and salary <=15000)
+
+SELECT employee_id, first_name, department_id, salary 
+FROM employees
+WHERE department_id IN (30, 70, 80) AND salary BETWEEN 10000 AND 15000;
+
+-30, 70, 80번 부서외의 사원 중 급여가 10000미만이거나 15000초과인 사원들의 사번,이름 부서번호,급여 출력
+SELECT employee_id, first_name, department_id, salary
+FROM EMPLOYEES
+WHERE department_id NOT IN (30, 70, 80) AND salary NOT BETWEEN 10000 AND 15000;
+--------------------------------------------------------------------
+--검색한 행 정렬하기
+--급여가 적은 사원부터 사번, 급여를 출력하시오
+SELECT employee_id, salary
+FROM employees
+ORDER BY salary ASC;
+
+--실급여가 적은 사원부터 사번, 급여, 수당률, 실급여를 출력하시오
+--(실급여 : 급여+수당, 수당 : 급여*수당률) salary + (commission_pct * salary)
+SELECT employee_id, salary, commission_pct 수당률, salary + (salary * NVL(commission_pct, 0) * salary) 실급여
+FROM EMPLOYEES
+ORDER BY salary + (salary * NVL(commission_pct, 0) * salary);
+
+SELECT employee_id, salary, commission_pct 수당률, salary + (salary * NVL(commission_pct, 0) * salary) 실급여
+FROM EMPLOYEES
+ORDER BY 4;
+
+SELECT employee_id, salary, commission_pct 수당률, salary + (salary * NVL(commission_pct, 0) * salary) 실급여
+FROM EMPLOYEES
+ORDER BY 실급여;
+
+--직무테이블에서 평균급여가 많은 직무부터 직무id, 직무명, 최소급여, 최대급여, 평균급여를 출력하시오
+SELECT job_id, job_title, min_salary 최소급여 , max_salary 최대급여, (min_salary + max_salary) / 2 평균급여
+FROM jobs
+ORDER BY 평균급여 DESC;
+
+--근무일수가 가장 많은 사원들부터 사번, 입사일, 근무일수을 출력하시오
+--(근무일수란 현재날짜 - 입사날짜, 단 근무일수는 소숫점이 안나오도록 출력)
+--(현재날짜용 함수 : SYSDATE)
+SELECT employee_id, hire_date, TRUNC(SYSDATE - hire_date, 0) || '일' 근무일수
+FROM EMPLOYEES
+ORDER BY 근무일수 DESC;
+
+SELECT employee_id, hire_date, salary, TRUNC(SYSDATE - hire_date, 0) || '일' 근무일수
+FROM EMPLOYEES
+ORDER BY 근무일수 DESC, salary ASC; 
+--근무일수가 높은 순대로 출력하고 근무일수가 같을때 급여는 오름차순으로 출력됨
+--------------------------------------------------------------------
+--LIKE 연산자
+--사원이름에 'e'를 포함한 사원들의 사번, 이름을 출력하시오
+SELECT employee_id, first_name
+FROM employees
+where first_name LIKE '%e%';
+--------------------------------------------------------------------
+--행중복제거 : DISTINCT
+--사원들의 부서번호를 출력하시오(107행 출력 예상)
+SELECT department_id
+FROM employees;
+
+--사원들의 중복없이 부서번호를 출력하시오(12행)
+SELECT DISTINCT department_id
+FROM employees;
+
+--사원들의 사번, 부서번호를 출력하시오(107행 출력 예상)
+SELECT employee_id, department_id
+FROM employees;
+--------------------------------------------------------------------
+--행번호용 의사컬럼 : ROWNUM
+SELECT rownum, employee_id
+FROM employees;
+
+--급여를 많이 받는 10명을 출력하시오(올바르지않음 x)
+SELECT rownum, employee_id, salary
+FROM employees
+WHERE rownum <= 10
+ORDER BY salary DESC;
+
+--급여를 많이 받는 11번째 사원부터 20번째 사원까지 최대 10명을 출력하시오
+SELECT rownum, employee_id, salary
+FROM employees
+WHERE rownum BETWEEN 11 AND 20
+ORDER BY salary DESC;
+--------------------------------------------------------------------
+C:\oraclexe\app\oracle\product\11.2.0\server\bin
+고급 보안이 포함된 windows defender 방화벽
+인바운드 규칙 -> 새 규칙 -> 프로그램 -> 위의 주소 
+포트 -> 1521 -> 똑같이 
+--------------------------------------------------------------------
+연산자
+ - 산술연산자 : +, -, *, /       나머지값을 구하는 연산자는 없음(%대신 MOD라는 함수 사용)
+ - 비교연산자 : >, >=, <, <=, =, <>(같지않다) 
+ - 논리연산자 : AND, OR, NOT 
+
+AND부터 연산하고 OR연산함. 우선순위. 
+
+함수
+-내장함수 : 
+  -숫자형함수 : MOD(x,y) 모든행에 x를 y로 나눠 나머지값을 대입, ROUND() 반올림, TRUNC() 소숫점버림
+SELECT MOD(3,2) FROM employees;
+SELECT MOD(3,2) FROM dual;
+SELECT 3+2, 3-2, 3*2, 3/2, MOD(3,2) FROM dual;
+SELECT 3/2, ROUND(3/2), ROUND(123.4567), ROUND(123.4567, 1) FROM dual;
+SELECT 3/2, TRUNC(3/2), TRUNC(123.4567, 1) FROM dual;
+
+  -문자형함수
+SELECT INSTR('가나다가나다', '나'), INSTR('가나다가나다, '마') FROM dual; --2.0
+SELECT SUBSTR('가나다가나다', 2, 3) FROM dual; --나다가
+SELECT LENGTH('가나다가나다'), LENGTHB('가나다가나다') FROM dual; --6, 18
+SELECT LPAD('ABC', 10, '*') FROM dual; --*******ABC
+SELECT 'BEGIN' || LTRIM('   ABC   ') || 'END' FROM dual; --BEGINABC   END
+
+  -날짜형함수
+날짜연산자 : 날짜+숫자 -> 날짜값반환, 날짜-날짜 -> 숫자값 반환
+현재날짜시간반환함수 : SYSDATE
+개월수를 반환 : MONTHS_BETWEEN()
+SELECT MONTHS_BETWEEN(TO_DATE('22/04/18'), SYSDATE)
+          MONTHS_BETWEEN(SYSDATE, TO_DATE('22/04/18'))
+FROM dual;
+
+달수를 증가/감소한 날짜값 반환 : ADD_MONTHS()
+SELECT ADD_MONTHS(SYSDATE, 1) "한달 후 날짜",
+          ADD_MONTHS(SYSDATE, -1) "한달 전 날짜",
+          ADD_MONTHS(SYSDATE, -6) "6개월전 날짜"
+FROM dual;
+
+마지막일자 반환 : LAST_DAY()
+SELECT LAST_DAY(TO_DATE('22/02/01'))
+FROM dual; 
+
+SELECT SYSDATE, SYSDATE + 1 내일날짜, SYSDATE + 3 - SYSDATE,
+	SYSDATE - TO_DATE('22/04/18') 수업일수
+FROM dual;
+
+지정해둔날짜의 다음 돌아오는 요일의 날짜값 반환 : NEXT_DAY()
+SELECT NEXT_DAY(TO_DATE('22/12/25'), '일요일')
+FROM dual;
+
+SELECT TO_CHAR(SYSDATE, 'yy-mm-dd am HH:MI:DD day')
+FROM dual;
+
+  -NULL관련함수
+NVL( , )
+    첫번째인자값이 NULL이 아닌경우 그대로 반환하고 NULL인 경우 두번째인자값을 반환
+SELECT NVL(commission_pct, 0) FROM employees;
+SELECT NVL(commission_pct, '수당없음') FROM employees; -- X자료형다름
+
+NVL2( , , )
+    첫번째인자값이 NULL이 아닌경우 두번째인자값 반환하고 NULL인 경우 세번째인자값을 반환
+SELECT NVL2(commission_pct, '수당있음', '수당없음')  FROM employees;
+
+NULLIF
+    첫번째인자값과 두번째인자값이 같으면 null을 반환, 다르면 첫번째인자값 반환
+SELECT NULLIF(10, 10) FROM dual;
+-NULL연산자 : IS NULL, IS NOT NULL
+
+  -일반함수
+DECODE( )
+SELECT DECODE(commission_pct, null, '수당없음', TO_CHAR(commission_pct)) 
+FROM employees; 
+
+SELECT DECODE(commission_pct, null, '수당없음', 0.1, 'A등급', TO_CHAR(commission_pct)) 
+FROM employees; 
+수당없으면 '수당없음',
+수당이 0.1~0.19경우에는 'A등급', 
+수당이 0.2~0.29            'B      ',
+수당이 0.3~0.39            'C      '
+          0.4~0.49           'D      ',
+          0.5~0.59           'E       ',
+          0.6이상은          'F       ' 
+로 출력하시오
+SELECT commission_pct, 
+          DECODE(TRUNC(commission_pct,1), 
+              null, '수당없음', 
+              0.1, 'A등급', 
+              0.2, 'B등급', 
+              0.3, 'C등급', 
+              0.4, 'D등급', 
+              0.5, 'E등급', 
+                   'F등급'
+       )        
+FROM employees;
+
+  -형변환함수
+    자동형변환 : 숫자형 <-> 문자형 <-> 날짜형
+    SELECT * FROM employees WHERE department_id = '050';
+    SELECT * FROM employees WHERE hire_date = '04/07/18';
+
+    숫자형 <--- 문자형 ---> 날짜형
+    숫자형 ---> 문자형 <--- 날짜형
+    숫자형 <-------X-------> 날짜형
+    문자형 ---> 날짜형 : TO_DATE()
+SELECT TO_DATE('22/02/28'),
+          TO_DATE('2022/02/28'),
+          TO_DATE('22-02-28'),
+          TO_DATE('02/28/22', 'mm/dd/yy'),
+          TO_CHAR(SYSDATE, 'yyyy-mm-dd am HH:MI:SS')
+          TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:MI:SS')
+FROM dual;
+    문자형 <--- 날짜형 : TO_CHAR()
+    문자형 ---> 숫자형 : TO_NUMBER()
+    문자형 <--- 숫자형 : TO_CHAR()
+
+-- CASE절
+CASE 컬럼 WHEN 값1 THEN 출력할값
+               WHEN 값2 THEN 출력할값
+               ELSE 
+END
+
+CASE        WHEN 조건식 THEN 출력할값
+               WHEN 조건식 THEN 출력할값
+               ELSE 
+END
+SELECT commission_pct, CASE WHEN commission_pct IS NULL THEN '수당없음'
+                                          WHEN commission_pct >= 0.6 THEN 'F'
+                                          WHEN commission_pct >= 0.5 THEN 'E'
+                                          WHEN commission_pct >= 0.4 THEN 'D'
+                                          WHEN commission_pct >= 0.3 THEN 'C'
+                                          WHEN commission_pct >= 0.2 THEN 'B'
+                                          WHEN commission_pct >= 0.1 THEN 'A' 
+                                 END
+FROM employees; 
+
+  -집계함수
+SUM()
+COUNT()
+AVG()
+MIN()
+MAX()
+SELECT SUM(commission_pct), COUNT(commission_pct), COUNT(*), AVG(commission_pct),
+	MIN(commission_pct), MAX(commission_pct)
+FROM employees;
+
+--그룹처리
+--부서별 사원수를 출력하시오
+SELECT department_id, COUNT(*)
+FROM employees
+GROUP BY department_id;
+
+--GROUP BY절에서 사용한 컬럼만 집계함수(그룹함수)와 함께 SELECT절에서 사용할 수 있다
+--	  	 사용안한 컬럼은                                 SELECT절에서 사용할 수 없다
+SELECT employee_id, department_id, COUNT(*)
+FROM employees
+GROUP BY department_id; -- X
+
+--부서별 평균급여, 최대급여, 최소급여를 출력하시오
+SELECT department_id, TRUNC(AVG(salary), 0) 평균급여, MAX(salary) 최대급여, MIN(salary) 최소급여
+FROM employees
+GROUP BY department_id;
+
+--부서별 평균급여, 최대급여, 최소급여를 출력하시오
+--단, 부서가 없는 사원들은 출력하지 않는다.
+SELECT department_id, TRUNC(AVG(salary), 0) 평균급여, MAX(salary) 최대급여, MIN(salary) 최소급여
+FROM employees
+WHERE department_id IS NOT NULL
+GROUP BY department_id;
+
+--30, 50번 부서의 부서번호, 평균급여, 최대급여, 최소급여를 출력하시오
+SELECT department_id, AVG(salary), MAX(salary), MIN(salary)
+FROM employees
+WHERE department_id IN (30,50)
+GROUP BY department_id; 
+
+--부서의 부서번호, 평균급여, 최대급여, 최소급여를 출력하시오
+--단, 평균급여가 10000이상인 부서만 출력하시오
+SELECT department_id, AVG(salary), MAX(salary), MIN(salary)
+FROM employees
+GROUP BY department_id
+HAVING AVG(salary) >= 10000;
+
+--30, 50, 100번 부서중 부서의 부서번호, 평균급여, 최대급여, 최소급여를 출력하시오
+--단, 평균급여가 4000이상인 부서만 출력하시오
+SELECT department_id, TRUNC(AVG(salary), 0), MAX(salary), MIN(salary)
+FROM employees
+WHERE department_id IN (30, 50, 100)
+GROUP BY department_id
+HAVING AVG(salary) >= 4000;
+
+--부서별 직무별 부서번호, 직무번호, 평균급여를 출력하시오
+--부서번호순으로 오름차순 출력, 부서번호가 같으면 평균급여가 높은 직무부터 출력
+SELECT department_id 부서번호, job_id 직무번호, TRUNC(AVG(salary), 0) 평균급여
+FROM employees
+GROUP BY department_id, job_id
+ORDER BY department_id, 평균급여 DESC;
+
+--그룹별 소계와 소계들의 총합까지 출력 : ROLLUP함수
+SELECT department_id 부서번호, 
+           NVL2(job_id, ''||job_id, '소계') 직무번호,
+           SUM(salary) 급여합
+FROM employees
+GROUP BY  ROLLUP(department_id, job_id);
+
+
+--그룹 외에도 계산가능한 모든 소계, 합계
+SELECT department_id 부서번호, job_id 직무번호, SUM(salary) 총급여
+FROM employees
+GROUP BY CUBE(department_id, job_id);
+
+--------------------------------------------------------------------
+--별칭사용
+SELECT employee_id 사번
+FROM employees
+WHERE 사번 >= 200 -- 처리순서때문에 X
+GROUP BY
+HAVING
+ORDER BY 사번; -- 처리순서가 SELECT보다 뒤이므로 O

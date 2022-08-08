@@ -1,0 +1,7 @@
+server.port=9999
+server.servlet.context-path:/demo1
+spring.datasource.hikari.driver-class-name=net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+spring.datasource.hikari.jdbc-url=jdbc:log4jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.hikari.username=hr
+spring.datasource.hikari.password=hr
+spring.datasource.hikari.minimum-idle=2

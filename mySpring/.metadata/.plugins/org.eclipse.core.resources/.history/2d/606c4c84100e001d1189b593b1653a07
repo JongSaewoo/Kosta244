@@ -1,0 +1,11 @@
+package com.my.dto;
+
+import java.util.List;
+
+public class PageBean {
+	private List<Board> list;
+	private int currentPage;
+	private int totalPage;
+	private int startPage;
+	private int endPage;
+}

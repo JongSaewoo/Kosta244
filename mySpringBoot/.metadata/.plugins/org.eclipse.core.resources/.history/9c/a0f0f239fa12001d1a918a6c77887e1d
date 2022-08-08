@@ -1,0 +1,38 @@
+package com.example.demo.repository;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.demo.entity.A;
+
+@SpringBootTest
+class ARepositoryTest {
+	@Autowired
+	private ARepository repository;
+	
+	@Test
+	void testSave() {
+		A a = new A();
+		a.setA1("1"); 
+		a.setA2(new BigDecimal(1.0));
+//		a.setA3(null);
+		a.setA4("a4-1");
+		repository.save(a); 
+		//Hibernate: select
+		//Hibernate: insert
+		
+		A aa = new A();
+		aa.setA1("1");
+		aa.setA2(new BigDecimal(2));
+		aa.setA4("a4-2");
+		repository.save(aa); 
+		//Hibernate: select a0_.a1_c as a1_0_0_, a0_.a2_c as a2_0_0_, a0_.a3 as a3_0_0_, a0_.a4_c as a4_0_0_ from a_tbl a0_ where a0_.a1_c=?
+		//Hibernate: update a_tbl set a2_c=?, a3=?, a4_c=? where a1_c=?
+	}
+
+}

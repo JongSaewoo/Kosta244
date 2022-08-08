@@ -1,0 +1,10 @@
+package com.my.repository;
+
+import com.my.dto.Customer;
+import com.my.exception.FindException;
+
+public interface CustomerRepository {
+
+	Customer selectByIdAndPwd(String id, String pwd) throws FindException;
+
+}

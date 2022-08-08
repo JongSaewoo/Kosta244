@@ -1,0 +1,11 @@
+package com.my.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.my.dto.Board;
+
+public interface BoardRepository extends CrudRepository<Board, Integer> {
+	// JPA도움을 받는 CRUD 레포지토리 인터페이스를 상속
+	//첫번째인자는 우리가 사용할 엔티티(Board), 두번째 인자는 해당 엔티티내의 자료를 식별할
+	// 컬럼의 자료형(int -> Integer)
+}

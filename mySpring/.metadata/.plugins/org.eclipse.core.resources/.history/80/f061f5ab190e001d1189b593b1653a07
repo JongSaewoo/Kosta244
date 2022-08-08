@@ -1,0 +1,23 @@
+package com.my.dto;
+
+import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter @Getter
+@ToString
+public class PageBean<T> {
+	private List<T> list;  			  //목록
+	private int currentPage;  		  //현재페이지
+	private int totalPage;  		  //총페이지
+	private int startPage;  		  //시작페이지
+	private int endPage;  			  //끝페이지
+	private int cntPerPageGroup = 2;  //페이지그룹별 보여줄 페이지수
+//	private String url;
+}

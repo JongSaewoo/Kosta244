@@ -1,0 +1,61 @@
+package com.my.repository;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.my.dto.Board;
+import com.my.exception.FindException;
+
+@SpringBootTest
+class BoardRepositoryTest {
+	@Autowired
+	BoardRepository repository;
+	
+	//(viewBoard)게시글 유효 테스트
+	@Test
+	void testFindByIdValid() {
+		Long boardNo = 1L;
+		//게시글번호의 게시글 조회한다
+		Optional<Board> optB1 = repository.findById(boardNo);
+		assertTrue(optB1.isPresent());
+	}
+	
+	//(viewBoard)게시글 무효 테스트
+	@Test
+	void testFindByIdInValid() {
+		Long boardNo = 1L;
+		Optional<Board> optB1 = repository.findById(boardNo);
+		assertFalse(optB1.isPresent());
+	}
+	
+	//(writeBoard)
+	@Test
+//	@Transactional // 테스트 후 롤백함
+	void testWrite() {
+		Board b = new Board();
+		b.setBoardTitle("title_t4");
+		b.setBoardContent("content_t4");
+		b.setBoardId("id4");
+//		b.setBoardParentNo(0);
+		repository.save(b);
+	}
+	
+	@Test
+//	@Transactional // 테스트 후 롤백함
+	void testReply() {
+		Board b = new Board();
+		
+		b.setBoardParentNo(1L); //1번글의 답글이란 의미
+		b.setBoardTitle("1_re_title");
+		b.setBoardContent("1_re_content");
+		b.setBoardId("id2");
+		repository.save(b);
+	}
+}

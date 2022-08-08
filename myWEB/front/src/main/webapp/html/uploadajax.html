@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    div {
+      border: 1px solid;
+      margin: 5px;
+    }
+
+    div.food,
+    div.drink,
+    div.recipe {
+      width: 100%;
+      height: 120px;
+    }
+
+    div.food>img,
+    div.drink>img,
+    div.recipe>img {
+      max-width: 100px;
+      margin: 10px;
+    }
+  </style>
+  <!--jquery사용-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+    //change이벤트가 호출되면 change가 showRecipe함수를 호출(업로드 전 과정)
+    function showRecipe(event) {
+      // let $reset = event.data.$reset; //없어도 됨. 쌤 실수
+      let $recipe = event.data.$recipe;
+      $recipe.empty();
+      if (this.files.length == 0) {
+        alert('파일을 선택하세요');
+        return false;
+      }
+      let file = this.files[0];
+      if (['image/png', 'image/jpeg', 'image/gif'].indexOf(file.type) != -1) {
+        alert('이미지 파일은 안됩니다');
+        $(this).val(''); //
+      } else { //이미지 파일 외 모든 파일을 선택했을시
+        let $imgObj = $('<img>');
+        $imgObj.attr('src', '../images/attach.png'); //attach.png를 불러오기
+        $imgObj.attr('alt', file.name);
+        $imgObj.css('max-width', '50px');
+        $recipe.append($imgObj);
+
+        let $spanObj = $('<span>');
+        $spanObj.html(file.name);
+        $recipe.append($spanObj);
+      }
+    }
+
+    //change이벤트가 호출되면 change가 showImage함수를 호출(업로드 전 과정)
+    function showImage(event) {
+      // console.log(event);
+      let $galary = event.data.$galary;
+      $galary.empty();
+
+      console.log(this);
+      // console.log('input[type=file]의 선택된 파일들');
+      // console.log(this.files);
+      if (this.files.length == 0) {
+        alert('파일을 선택하세요');
+      }
+      $(this.files).each(function (index, file) {
+        let $imgObj = $('<img>'); //<img>객체를 생성
+        let blobURL = URL.createObjectURL(file);
+        $imgObj.attr('src', blobURL);
+        $imgObj.attr('alt', file.name);
+        $imgObj.css('max-width', '100px');
+        $galary.append($imgObj); //생성된 <img>객체를 $galary객체의 last child로 추가
+      });
+    }
+
+    //파일선택객체를 클릭하면 change이벤트를 호출하도록 기술(업로드 전 과정)
+    $(function () {
+      //--파일선택을 변경할때 START--
+      /*파일선택을 변경할때마다 선택된 이미지파일들을 
+      img객체로 생성하여 
+      div.food또는 div.drink객체의 child로 추가한다*/
+      let $divFood = $('div.food');
+      let $divDrink = $('div.drink');
+      let $divRecipe = $('div.recipe');
+
+      $('div.form>form input[name=foodFile]').change({ $galary: $divFood }, showImage);
+      //파일선택객체에서 .change이벤트가 발생할때마다 $galary: $divFood가 전달되고 
+      //그 인자에 해당하는 매개변수 showImage함수를 호출
+      //이때 매개변수showImage의 이름을 $galary, 전달인자값은 $divFood
+      $('div.form>form input[name=drinkFiles]').change({ $galary: $divDrink }, showImage);
+
+      // $('div.form>form input[name=foodFile]').change(function(){
+      //   $divFood영역에 이미지생성 --> showImage함수로 도출
+      // });
+      $('div.form>form input[name=recipe]').change({ $recipe: $divRecipe }, showRecipe);
+      //--파일선택을 변경할때 END--
+
+      //--업로드될 내용 확인하기버튼 클릭 START--
+      //업로드되려면 FormData객체가 필요하다
+      $('div.form>form>input[type=button].info').click(function () {
+        let formObj = this.parentNode;
+        let formData = new FormData(formObj);
+        console.log('---formData value---')
+        formData.forEach(function (value, key) {
+          console.log(key);
+          console.log(value);
+          console.log('---');
+        });
+        console.log('');
+        console.log('---foodFile.name, foodFile.size, foodFile.type-------');
+        let f = formData.get('foodFile');
+        //선택된 파일이 없을 경우엔 f.name이 ""이고 f.size는 0이다
+        //주의할점 : `음식 파일이름은${f.name}에서 `(back fick)은 '(작은따옴표)이 아님
+        //backfick `을 안썼을때는 자바스크립트 형식으로 써야하기때문에 
+        //alert(`음식 파일이름은${f.name}, 파일크기는 ${f.size}, 타입은 ${f.type}`);를
+        // 쓸때 alert('음식 파일이름은' + f.name + ', 파일크기는' f.size); 이렇게 써야한다
+        // 즉, 문자열('')내에서 객체이름을 명명할수있음 
+        alert(`음식 파일이름은${f.name}, 파일크기는 ${f.size}, 타입은 ${f.type}`);
+        if (f.name == '') {
+          alert('음식이 선택되지 않았습니다.');
+        }
+        console.log('');
+        console.log('---drinkFile.name, drinkFile.size, drinkFile.type-------');
+        $(formData.getAll('drinkFiles')).each(function (index, d) {
+          alert(`음료 파일이름은${d.name}, 파일크기는 ${d.size}, 타입은 ${d.type}`);
+          if (d.name == '') {
+            alert('음료가 선택되지 않았습니다.');
+          }
+        });
+
+        let r = formData.get('recipe');
+        alert(`레시피 파일이름은${r.name}, 파일크기는 ${r.size}, 타입은 ${r.type}`);
+        if (r.name == '') {
+          alert('레시피가 선택되지 않았습니다.');
+        }
+      });
+      //--업로드될 내용 확인하기버튼 클릭 END--
+
+      //--AJAX 파일업로드 버튼 클릭 START--
+      $("div.form>form>input[type=button].ajax").click(function () {
+        let formObj = this.parentNode;
+        let formData = new FormData(formObj);
+        $.ajax({
+          url: "/back4/upload",
+          method: "post",
+          processData: false,
+          contentType: false,
+          data: formData, //요청전달데이터 
+                          //(주의! : 서버에 업로드할때 전달객체는 무조건 FormData의 객체여야한다)
+          success: function (responseObj) {
+
+          }, error: function (jqXHR) {
+            alert("에러:" + jqXHR.status);
+          }
+        });
+        return false;
+      });
+      //--AJAX 파일업로드 버튼 클릭 END--
+
+      //--dto 버튼 클릭 START-- //dto매커니즘.jpg사진 참고
+      /*
+      파일업로드와 json문자열전송은 FormData객체에 파일과 json문자열을 추가한다  
+      */
+      $("div.dto>form>input[type=button]").click(function () {
+        let formObj = this.parentNode;
+        let formData = new FormData(formObj);
+        let attach = $('div.dto input[name=attach]').prop('files')[0];
+        formData.append('attach', attach);
+        formData.append('greeting', '안녕하세요');
+
+        let $fieldsets = $('div.dto fieldset');
+        let recipeArr = [];
+        $fieldsets.each(function (index, fieldset) {
+          let title = $(fieldset).find('input[type=text]').val();
+          let content = $(fieldset).find('textarea').val();
+          let recipe = {};
+          recipe.title = title;
+          recipe.content = content;
+          recipeArr.push(recipe);
+        });
+        let jsonStr2 = JSON.stringify(recipeArr);
+        formData.append("recipes", jsonStr2);
+
+        formData.forEach(function (value, key) {
+          console.log(key);
+          console.log(value);
+          console.log('---');
+        });
+        $.ajax({
+          url: "/back4/upload",
+          method: "post",
+          processData: false,
+          contentType: false,
+          data: formData, //요청전달데이터 
+          success: function (responseObj) {
+            console.log(responseObj);
+            if (responseObj.drinkFileName) {
+              $("img.drinkFile").attr("src", "/boardrestspring/upload/" + responseObj.drinkFileName);
+            }
+          }, error: function (jqXHR) {
+            alert("에러:" + jqXHR.status);
+          }
+        });
+        return false;
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="food"></div>
+  <div class="drink"></div>
+  <div class="recipe"></div>
+  <div class="form">
+    <h4>class="form"</h4>
+    <h3>레시피등록</h3>
+    <form method="post" action="/back4/upload" enctype="multipart/form-data">
+    <!--enctype은 서버로 업로드하는 객체-->
+      <label>음식사진은 1개만 첨부
+        <input type="file" name="foodFile" accept="image/*"><br> 
+        <!--accept는 파일 업로드할때 파일 선택시 파일의 형식(image/*이면 모든 이미지 형식) 
+          혹은 더 세부적인 필터링으로 확장자(이미지형식 중 .jpg/ .png 등)를 지정가능-->
+      </label>
+      <label>음료사진은 여러개 첨부가능
+        <input type="file" name="drinkFiles" accept="image/*" multiple><br>
+        <!--multiple 속성은 파일을 여러개 선택하여 업로드 가능하도록함-->
+      </label>
+      <label>레시피 첨부파일(이미지아님)
+        <input type="file" name="recipe"><br>
+        <!--반대로 원하는 파일의형식이 아닌 그 외에 형식들을 찾으려면 자바스크립트로
+        해결해야함 즉, 원하는 파일의형식을 제외(except)한 나머지를 찾으려면 js로 해결-->
+      </label>
+      <input type="button" class="info" value="업로드될 내용 확인하기">
+      <input type="submit" value="SUBMIT 파일업로드">
+      <input type="button" class="ajax" value="AJAX 파일업로드">
+    </form>
+  </div>
+
+
+  <div class="dto">
+    <h4>class="dto"</h4>
+    <label>첨부<input type="file" name="attach"></label>
+
+    <fieldset>
+      <legend>STEP 1</legend>
+      <input type="text" name="title" value="제목1"><br>
+      <textarea name="content">레시피글내용1</textarea><br>
+    </fieldset>
+    <fieldset>
+      <legend>STEP 2</legend>
+      <input type="text" name="title" value="제목2"><br>
+      <textarea name="content">레시피글내용2</textarea><br>
+    </fieldset>
+    <fieldset>
+      <legend>STEP 3</legend>
+      <input type="text" name="title" value="제목3"><br>
+      <textarea name="content">레시피글내용3</textarea><br>
+    </fieldset>
+    <form method="post" enctype="multipart/form-data">
+      <input type="button" value="form-data전송 dto매핑">
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+package com.my.service;
+
+import com.my.dto.Customer;
+import com.my.exception.FindException;
+import com.my.repository.CustomerOracleRepository;
+import com.my.repository.CustomerRepository;
+
+public class CustomerService {
+	private CustomerRepository repository;
+	public CustomerService() {//??
+		this.repository = new CustomerOracleRepository();
+	}
+	
+	public Customer login(String id, String pwd) throws FindException {
+		Customer c = repository.selectById(id);
+		if(!c.getPwd().equals(pwd)) {
+			throw new FindException();
+		}
+		return c;
+	}
+	
+	public Customer signup
+	(String id, String pwd, String name, String addr, String buildingno) throws FindException {
+		
+	}
+	
+	public Customer iddupchk() throws FindException {
+		
+	}
+	
+//	public Customer loginstatus() throws FindException {
+//		
+//	}
+//
+//	public Customer logout() throws FindException {
+//		
+//	}
+}

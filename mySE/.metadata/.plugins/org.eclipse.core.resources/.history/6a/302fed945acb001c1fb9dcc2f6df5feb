@@ -1,0 +1,9 @@
+package com.my.repository;
+
+import java.util.List;
+
+import com.my.dto.Product;
+
+public class ProductListRepository {
+	private List<Product> products;
+}

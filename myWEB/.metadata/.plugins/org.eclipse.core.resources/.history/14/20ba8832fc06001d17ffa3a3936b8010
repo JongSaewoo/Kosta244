@@ -1,0 +1,13 @@
+package com.my.service;
+
+import com.my.repository.CustomerRepository;
+
+public class CustomerService {
+	private CustomerRepository repository;
+	public CustomerService() {
+		this.repository = repository;
+	}
+	public void login(String id, String pwd) {
+		
+	}
+}

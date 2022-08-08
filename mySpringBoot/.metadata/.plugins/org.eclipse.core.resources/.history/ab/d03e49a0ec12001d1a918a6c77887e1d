@@ -1,0 +1,18 @@
+package com.example.demo.entity;
+
+import javax.persistence.Entity;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+//@Entity
+@RequiredArgsConstructor
+@Setter @Getter
+@ToString
+public class A {
+	private String a1;
+	private int a2;
+}

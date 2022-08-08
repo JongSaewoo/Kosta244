@@ -1,0 +1,4 @@
+INDEX VERSION 1.4+C:\Users\sitsu\OneDrive\πŸ≈¡ »≠∏È\kosta244\mySpringBoot\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2229387026.index
+4198642496.index
+1500549298.index

@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+C:\Users\sitsu\OneDrive\πŸ≈¡ »≠∏È\kosta244\mySpring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2549890083.index
+\backctr\src\main\java

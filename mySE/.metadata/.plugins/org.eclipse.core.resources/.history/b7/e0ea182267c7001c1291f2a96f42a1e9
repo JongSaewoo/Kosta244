@@ -1,0 +1,44 @@
+package gui;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+/**
+ * 이벤트프로그램 절차
+ * 1. EventSource(이벤트발생된 곳)을 결정 ex) btReady
+ * 2. 이벤트 종류를 결정 ex) ActionEvent
+ * 3. EventHandler(이벤트 발생했을때 할 일)을 작성
+ *    ex) class MyHandler implements ActionListener{
+ *    		public void actionPerformed(ActionEvent e){
+ *    			System.out.println("준비되었습니다");
+ *    		}
+ *   	}
+ * 4. EventSource와 EventHandler를 연결
+ *    ex) btReady.add~~~~(new MyHandler());
+ * @author meoal
+ *
+ */
+
+public class Race {
+	private JFrame jf;
+	private JButton btStart, btReady;
+	public Race() {
+		jf = new JFrame("달리기"); //액자
+		btStart = new JButton("달려");
+		btReady = new JButton("준비");
+		
+		Container c = jf.getContentPane(); //액자 뒷판
+		c.setLayout(new FlowLayout());
+		c.add(btReady);
+		c.add(btStart);
+		
+		jf.setSize(500, 300);
+		jf.setVisible(true);
+	}
+	public static void main(String[] args) {
+		new Race();
+
+	}
+}

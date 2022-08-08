@@ -1,0 +1,15 @@
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.common.driverClass=oracle.jdbc.driver.OracleDriver
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.common.driverJar=C\:\\oraclexe\\app\\oracle\\product\\11.2.0\\server\\jdbc\\lib\\ojdbc6.jar
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.common.extendedPropertiesKeys=connectionString
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.common.name=\uB9C8\uC9C0\uB9C9\uC73C\uB85C \uAD6C\uC131\uD55C \uC5F0\uACB0
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.common.productId=com.tomato.db.oracle_10g
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.common.productName=Oracle 9i ~ 21c
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.common.propertiesKeys=password/port/host/user/internal_logon/sId
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.common.url=jdbc\:oracle\:thin\:@127.0.0.1\:1521\:xe
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.properties.host=127.0.0.1
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.properties.internal_logon=normal
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.properties.password=hr
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.properties.port=1521
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.properties.sId=xe
+com.tomato.exerd.connection.com.tomato.db.oracle_10g.lastSelectedConnection.properties.user=hr
+eclipse.preferences.version=1

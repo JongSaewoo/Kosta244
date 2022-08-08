@@ -1,0 +1,32 @@
+package com.example.demo.entity;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.lang.Nullable;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "a_tbl")
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter @Getter
+@ToString
+public class A {
+	@Id
+	@Column(name = "a1_c", length = 5)
+	private String a1;
+	
+	@Column(name = "a2_c", precision = 5, scale = 2, nullable = true)
+	private BigDecimal a2; //int a2 (X)
+}

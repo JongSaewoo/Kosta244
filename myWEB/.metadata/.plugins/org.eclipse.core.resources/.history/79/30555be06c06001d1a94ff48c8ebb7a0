@@ -1,0 +1,8 @@
+/login=com.my.control.CustomerController
+/signup=com.my.control.CustomerController
+/iddupchk=com.my.control.CustomerController
+/customerinfo=com.my.control.CustomerController
+/productlist=com.my.control.ProductController
+/viewproduct=com.my.control.ProductController
+/loginstatus=
+/logout=

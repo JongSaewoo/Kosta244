@@ -1,0 +1,13 @@
+
+public class Practice {
+
+	public static void main(String[] args) {
+		String str1 = null;
+		int i = 0;
+		if((i != 0)&&(str1.length()>5)) {
+			System.out.println(i);
+		}
+		
+	}
+
+}

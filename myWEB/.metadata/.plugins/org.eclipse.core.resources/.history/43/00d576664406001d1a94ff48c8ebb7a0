@@ -1,0 +1,10 @@
+package com.my.dto;
+
+public class Customer {
+	private String id;
+	private String pwd;
+	private String name;
+	private String address;
+	private int status;
+	private String buildingno;
+}

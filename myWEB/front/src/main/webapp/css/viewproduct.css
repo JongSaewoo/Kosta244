@@ -1,0 +1,19 @@
+@charset "UTF-8";
+div.viewproduct{
+	width: 100%;
+	border: 1px solid;
+}
+
+div.viewproduct>div.detail{
+	display: inline-block;
+	width: 50%;
+}
+
+div.viewproduct>div.detail>ul{
+	list-style-type: none;
+	padding-left: 0px;
+}
+
+div.viewproduct>div.detail>ul>li{
+	margin-top: 20px;
+}

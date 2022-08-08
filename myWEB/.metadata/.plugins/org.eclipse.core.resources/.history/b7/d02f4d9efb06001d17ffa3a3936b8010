@@ -1,0 +1,161 @@
+package com.my.control;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.my.dto.Customer;
+import com.my.exception.AddException;
+import com.my.exception.FindException;
+import com.my.repository.CustomerOracleRepository;
+import com.my.repository.CustomerRepository;
+
+public class CustomerController implements Controller {
+	private CustomerRepository repository;
+	public CustomerController() {
+		repository = new CustomerOracleRepository();
+	}
+
+	@Override
+	public String excute(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String servletPath = request.getServletPath();
+		//프로퍼티즈를 새로만들던가 기존 프로퍼티즈안에 내용을 세분화하면됨
+		if("/login".equals(servletPath)) { //로그인작업
+			return login(request, response);
+		} else if("/signup".equals(servletPath)) { //가입작업
+			return signup(request, response);
+		} else if("/iddupchk".equals(servletPath)) {
+			return iddupchk(request, response);
+		} else if("/customerinfo".equals(servletPath)) {
+			return info(request, response);
+		} else if("/loginstatus".equals(servletPath)) {
+			return loginstatus(request, response);
+		} else if("/logout".equals(servletPath)) {
+			return logout(request, response);
+		}
+		return null;
+	}
+
+	private String login(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		//요청전달데이터 얻기
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+
+		//응답결과
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object>map = new HashMap<>();
+		map.put("status", 0);
+		String result = null;  //실패
+
+		//세션(클라이언트별 객체)얻기
+		HttpSession session = request.getSession();
+		session.removeAttribute("loginInfo");
+
+		try {
+//			repository.selectByIdAndPwd(id, pwd);
+			Customer c = repository.selectById(id);
+			if(c.getPwd().equals(pwd)) {
+				map.put("status", 1);
+				session.setAttribute("loginInfo", id);
+			}
+		} catch(FindException e) {
+			// 아무것도 안쓰면 result에 "{\"status\": 0}" 
+			// 응답결과가 result에 담김  
+		}
+		result = mapper.writeValueAsString(map);  
+		// map에 넣어놨던 key,value값(status, <0,1>)을 JACKSON라이브러리의
+		// mapper.writeValueAsString()를 통해 json문자열로 저장
+		return result;
+	}
+
+	private String signup(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String name = request.getParameter("name");
+		String addr = request.getParameter("addr");
+		String buildingno = request.getParameter("buildingno");
+
+		//		String result = "{\"status\":0, \"msg\": \"가입실패\"}";
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object>map = new HashMap<>();
+		String result = null;
+		map.put("status", 0);
+		map.put("msg", "가입실패");
+
+		Customer customer = new Customer(id, pwd, name, addr, 1, buildingno);
+		try {
+			repository.insert(customer);
+			//result = "{\"status\":1, \"msg\": \"가입성공\"}";
+			map.put("status", 1);
+			map.put("msg", "가입성공");
+		} catch(AddException e) {
+		}
+		result = mapper.writeValueAsString(map);
+		return result;
+	}
+
+	private String iddupchk(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		String id = request.getParameter("id");
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object>map = new HashMap<>();
+		map.put("status", 0);
+		map.put("msg", "이미 사용중인 아이디입니다");
+
+		try {
+			Customer c = repository.selectById(id);  //이미 존재하는 아이디인경우
+		}catch(FindException e) {  
+			//repository.selectById(id)에서 id를 select못해왔을경우 = 사용가능한 아이디인 경우
+			map.put("status", 1);
+			map.put("msg", "사용가능한 아이디입니다");
+		}
+		return mapper.writeValueAsString(map);
+	}
+
+	private String info(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		//selectbyid()씀
+		return null;
+	}
+
+	private String loginstatus(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String loginedId = (String)session.getAttribute("loginInfo");
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object>map = new HashMap<>();
+		
+		try {
+			if(loginedId == null) {
+				map.put("status", 0);
+			}
+			throw new FindException("로그인 먼저 해주세요"); 
+		}catch(FindException e) {
+			map.put("status", 1);
+		}
+		return mapper.writeValueAsString(map);
+	}
+
+	private String logout(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		session.removeAttribute("loginInfo"); //세션객체는 존재, 속성제거
+		//session.invalidate();	//세션객체 제거
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object>map = new HashMap<>();
+
+		map.put("status", 0);
+		map.put("msg", "로그아웃");
+		
+		return mapper.writeValueAsString(map);
+	}
+}

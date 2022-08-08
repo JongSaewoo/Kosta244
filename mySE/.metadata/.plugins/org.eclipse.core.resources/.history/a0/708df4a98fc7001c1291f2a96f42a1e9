@@ -1,0 +1,31 @@
+package exception;
+
+import java.io.FileInputStream;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ExceptionTest {
+	public static void test(int i) {
+		if(i != 0) {
+			int j = 99 % i; //i가 0인 경우 ArithmeticException 발생
+			System.out.println("99를 " + i + "로 나눈 나머지값은 " + j);
+		}else {
+			System.out.println("0으로는 나눌 수 없습니다");
+		}
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("숫자를 입력하세요:");
+		try {
+			int i = sc.nextInt(); //숫자가 입력되지 않으면 InputMismatchException 발생
+		}catch(InputMismatchException e) {
+			System.out.println("숫자로 입력하세요. 숫자가 아니어서 1로 대신합니다");
+		}
+			test(i);
+		
+		FileInputStream fis;
+		fis = new FileInputStream("a.txt");
+		
+		System.out.println("끝");
+	}
+}

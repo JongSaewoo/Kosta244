@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.Part"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.MultipartConfig"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="com.my.sql.MyConnection"/>
+    <fullyQualifiedTypeName name="com.my.repository.CustomerRepository"/>
+    <fullyQualifiedTypeName name="com.my.repository.CustomerOracleRepository"/>
+    <fullyQualifiedTypeName name="com.my.exception.FindException"/>
+    <fullyQualifiedTypeName name="com.my.exception.AddException"/>
+</qualifiedTypeNameHistroy>

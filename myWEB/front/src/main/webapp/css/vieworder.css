@@ -1,0 +1,10 @@
+div.vieworder {
+	width: 80%;
+	border: 1px solid;
+	display: table;
+}
+
+div.vieworder>div.info>div.order_product,
+div.vieworder>div.info>div.order_quantity {
+	border-bottom: 1px solid;
+}

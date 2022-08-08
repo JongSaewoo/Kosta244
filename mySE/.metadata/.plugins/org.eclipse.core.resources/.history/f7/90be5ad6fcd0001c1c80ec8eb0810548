@@ -1,0 +1,61 @@
+package com.my.repository;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.my.dto.Product;
+import com.my.exception.AddException;
+import com.my.exception.FindException;
+
+public class ProductFileRepository implements ProductRepository {
+	private String fileName = "products.txt";
+
+	public void insert(Product product) throws AddException {
+	}
+
+	public List<Product> selectAll() throws FindException {
+		// fr.read(); //한문자씩 읽기
+		Scanner sc = null;
+		try {
+			sc = new Scanner(new FileInputStream(fileName));
+			List<Product> all = new ArrayList<>();
+			while (sc.hasNextLine()) { // while((sc.hasNextLine()) == true){
+				String line = sc.nextLine();
+				String[] arr = line.split(":", 3);
+				String prodNo = arr[0];
+				String prodName = arr[1];
+				int prodPrice = Integer.parseInt(arr[2]);
+				if(prodNo.contains(word) || prodName.contains(word)) {
+					searched.add(new Product(prodNo, prodName, prodPrice));
+					return searched;
+				}
+				
+				Product p = new Product(prodNo, prodName, prodPrice);
+				all.add(p);
+			}
+			if (all.size() == 0) {
+				throw new FindException("상풍이 없습니다");
+			}
+			return all;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			throw new FindException("상품이 없습니다");
+		} finally {
+			if (sc != null) {
+				sc.close();
+			}
+		}
+	}
+
+	public Product selectByProdNo(String prodNo) throws FindException {
+		return null;
+
+	}
+
+	public List<Product> selectByProdNoOrProdName(String word) throws FindException {
+		return null;
+	}
+}

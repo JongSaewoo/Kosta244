@@ -1,0 +1,14 @@
+package com.example.demo.repository;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.demo.entity.A;
+
+public interface ARepository extends CrudRepository<A, String> {
+	//CrudRepository<A, String> 
+	// -> 첫번째인자는 엔티티가 될 클래스, 두번째인자는 그 클래스의 pk키의 리턴타입을 적는다
+	
+	List<A> findByA4(String a4);
+}

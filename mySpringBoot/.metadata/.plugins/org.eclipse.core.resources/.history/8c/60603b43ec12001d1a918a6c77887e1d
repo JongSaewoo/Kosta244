@@ -1,0 +1,9 @@
+package com.example.demo.entity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class A {
+	String a1;
+	int a2;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>첫번째 HTML입니다</title>
+</head>
+<body>
+박종우의 basic.html문서입니다
+<!-- 
+--오류나는 아규먼츠
+-Dcatalina.base="C:\Users\sitsu\OneDrive\바탕 화면\kosta244\SW\apache-tomcat-9.0.63\apache-tomcat-9.0.63" 
+-Dcatalina.home="C:\Users\sitsu\OneDrive\바탕 화면\kosta244\SW\apache-tomcat-9.0.63\apache-tomcat-9.0.63" 
+-Dwtp.deploy="C:\Users\sitsu\OneDrive\바탕 화면\kosta244\SW\apache-tomcat-9.0.63\apache-tomcat-9.0.63\wtpwebapps" 
+--add-opens=java.base/java.lang=ALL-UNNAMED 
+--add-opens=java.base/java.io=ALL-UNNAMED 
+--add-opens=java.base/java.util=ALL-UNNAMED 
+--add-opens=java.base/java.util.concurrent=ALL-UNNAMED 
+--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED 
+-Djava.endorsed.dirs="C:\Users\sitsu\OneDrive\바탕 화면\kosta244\SW\apache-tomcat-9.0.63\apache-tomcat-9.0.63\endorsed"
+
+--바꾼 아규먼츠
+-Dcatalina.base="C:\Users\sitsu\OneDrive\바탕 화면\kosta244\SW\apache-tomcat-9.0.63\apache-tomcat-9.0.63" -Dcatalina.home="C:\Users\sitsu\OneDrive\바탕 화면\kosta244\SW\apache-tomcat-9.0.63\apache-tomcat-9.0.63" -Dwtp.deploy="C:\Users\sitsu\OneDrive\바탕 화면\kosta244\SW\apache-tomcat-9.0.63\apache-tomcat-9.0.63\wtpwebapps" -Djava.endorsed.dirs="C:\Users\sitsu\OneDrive\바탕 화면\kosta244\SW\apache-tomcat-9.0.63\apache-tomcat-9.0.63\endorsed"
+
+바꾸고나면 크롬에들어가서 url주소창에 http://localhost:8888/front/html/basic.html 으로 요청
+ -->
+ 
+<!-- 
+ 마크업언어 : 태그(시작태그와 종료태그)로 구성된 언어
+ HTML : Hyper Text Markup Language
+ -->
+<h1>박종우의 h1/basic.html문서입니다</h1>
+<h3>박종우의 h3/basic.html문서입니다</h3>
+<p style="color:Tomato;">
+p문단 글자에 토마토색상넣기
+</p>
+<p style="background-color:LightGray">
+p문단 글자배경에 밝은회색넣기
+</p>
+<p style="background-color:LightGray;color:#ff0000;">
+p문단 글자에 토마토색상, <a href="https://www.w3schools.com/">글자배경에</a> 밝은회색넣기
+</p>
+<p>
+	<a href="http://localhost:8888/front/html/profile.html">프로필</a>
+	<a href="./self-introduction.html" target="_blank">자기소개서</a>
+	<a href="self-introduction.html" target="_blank">자기소개서</a>
+	<a href="/front/html/self-introduction.html">자기소개서</a>
+</p>
+<p>
+	<img src="https://sojoong.joins.com/wp-content/uploads/sites/4/2021/12/seupaideomaennoweihom_2chaposeuteo.jpg"
+		 alt="스파이더맨 노웨이홈"
+		 width="200"
+		 height="200">
+		 
+	<img src="../images/spiderPhoto.jpg"
+		 alt="스파이더맨 노웨이홈"
+		 width="400">
+	<img src="/front/images/spiderPhoto.jpg"
+		 alt="스파이더맨 노웨이홈"
+		 width="50%">
+</p>
+<!-- <table border="1" width="500"> -->
+<table style="border:1px solid;width:500px;">
+	<thead>
+		<tr><th style="border:1px dotted;">종류</th><th>원산지</th></tr>
+	</thead>
+	<tbody>
+		<tr><td rowspan="2" style="border:1px dotted;">녹차</td><td style="border:1px solid">보성</td></tr>
+		<tr>		                <td>제주</td></tr>
+		<tr><td>우롱차</td><td>제주</td></tr>
+		
+		<tr><td>오렌지</td><td>캘리포니아</td></tr>
+		<tr><td>키위</td><td>제주</td></tr>
+	</tbody>
+	<tfoot>
+		<tr><td colspan="2" style="border:1px dotted;">맺음말</td></tr>
+	</tfoot>
+</table>
+<table style="border:1px solid;width:500px;">
+		<tr><th style="border:1px dotted;">종류</th><th>원산지</th></tr>
+
+		<tr><td rowspan="2" style="border:1px dotted;">녹차</td><td style="border:1px solid">보성</td></tr>
+		<tr>		                <td>제주</td></tr>
+		<tr><td>우롱차</td><td>제주</td></tr>
+		
+		<tr><td>오렌지</td><td>캘리포니아</td></tr>
+		<tr><td>키위</td><td>제주</td></tr>
+
+		<tr><td colspan="2" style="border:1px dotted;">맺음말</td></tr>
+</table>
+<p>
+	<ol>
+		<li>정치</li>
+		<li>경제</li>
+		<li>사회</li>
+	</ol>
+	<ul>
+		<li>정치</li>
+		<li>경제</li>
+		<li>사회</li>
+	</ul>
+</p>
+
+<br>
+<br>
+<address>
+@이것은 주소태그입니다. ex) 경기도 용인시 기흥구
+</address>
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+package com.my.repository;
+
+import java.util.List;
+
+import com.my.dto.Board;
+
+public interface BoardRepository {
+	/*
+	 * 1)게시물목록(페이지별 3건씩 보여주기)
+	 * 2)게시글 검색
+	 * 3)게시글 상세보기 : 조회수 1씩 증가
+	 * 4)게시글 수정하기
+	 * 5)게시글 삭제하기
+	 * 6)답글쓰기
+	 * 7)글쓰기
+	 */
+	
+	/**
+	 * 게시물목록
+	 * @param currentPage 검색할 페이지번호
+	 * @param cntPerPage 페이지별 보여줄 건수
+	 * @return
+	 */
+	List<Board> selectByPage(int currentPage, int cntPerPage) thorws find;
+}

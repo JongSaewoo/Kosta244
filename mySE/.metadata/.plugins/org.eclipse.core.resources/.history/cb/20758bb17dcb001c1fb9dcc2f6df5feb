@@ -1,0 +1,56 @@
+import java.util.List;
+
+import com.my.dto.Product;
+import com.my.exception.AddException;
+import com.my.repository.ProductListRepository;
+
+public class ProductManager {
+
+	public static void main(String[] args) {
+		ProductListRepository repository;
+		repository = new ProductListRepository();
+//		try {
+//		repository.insert(new Product("D0001", "상풍1", 1000));
+//		}catch(AddException e) {
+//			
+//		}
+//		try {
+//		repository.insert(new Product("D0002", "상풍2", 1000));
+//		}catch(AddException e) {
+//			
+//		}
+//		try {
+//		repository.insert(new Product("D0003", "상풍3", 1000));
+//		}catch(AddException e) {
+//			
+//		}
+//		try {
+//		repository.insert(new Product("D0002", "상풍4", 4000)); //이미 존재하는 상품입니다
+//		}catch(AddException e) {
+//			
+//		}
+		
+//		try {
+//			List<Product> list = repository.selectAll();
+//			for(int i = 0; i < list.size(); i++) {
+//				Product p = list.get(i);
+//	
+//				System.out.println(p); //p.toString() 자동호출됨
+//				}//end for
+//			}catch(com.my.exception.FindException e) {
+//				System.out.println(e.getMessage()); //상품이 없습니다
+		try {
+		repository.insert(new Product("D0001", "상풍1", 1000));
+		}catch(AddException e) {
+			
+		}
+		try {
+			product p = repository.selectByProdNo("D0001");
+			System.out.println(p); //상품번호는 D0001, 상품명은 상품1, 가격은 1000
+		}catch(FindException e) {
+			System.out.println(e.getMessage);
+		}
+
+
+	}
+}	

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean name="p" class="com.my.dto.Product">	<!-- bean 객체 : 스프링컨테이너로 관리되는 객체 -->
+		<property name="prodNo" value="C0001"/>
+		<property name="prodName" value="아메리카노"/>
+		<property name="prodPrice" value="1000"/>
+	</bean>
+	<bean name="customerRepository" class="com.my.repository.CustomerOracleRepository"/>
+	<bean name="customerService" class="com.my.service.CustomerService">
+		<!--<constructor-arg ref="customerRepository"/>--><!-- 컨스트럭터로하면 객체에 직접 저장됨(생성자를 통해 의존성주입) -->
+		<property name="repository" ref="customerRepository"/><!-- 프로퍼티로하면 setRepository를 통해 객체에 값이 전달되어 저장됨(세터메소드를 통해 의존성 주입) --> 
+		<!-- customerService.setRepository(customerRepository); 호출 -->
+	</bean>
+	<bean name="productRepository" class="com.my.repository.ProductOracleRepository">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	<bean name="productService" class="com.my.service.ProductService">
+		<!-- <property name="repository" ref="productRepository"/> -->
+		<constructor-arg ref="productRepository"/>
+		<!-- 생성자를 통해 의존성 주입 : 'productRepository'bean과 의존성맺기 -->
+	</bean>
+	<!-- 스프링컨테이너(dataSource bean)를 통해 관리 될 jdbc연결 소스 생성 -->
+	<bean name="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="hr"/>
+		<property name="password" value="hr"/> 
+	</bean>
+</beans>

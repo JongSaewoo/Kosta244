@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+import com.my.dto.Product;
+import com.my.exception.AddException;
+import com.my.exception.FindException;
+import com.my.repository.ProductListRepository;
+
+/**
+ * add, revise, inquire, delete products in repository
+ * @author kwonminho
+ *
+ */
+public class ProductManager {
+	/**
+	 * 작업구분 : 1-상품등록, 2-상품전체조회, 3-상품번호로조회, 4-검색어로조회, 5-상품수정, 9-종료
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ProductListRepository repository = new ProductListRepository();
+		ProductManagerConsole managerConsole = new ProductManagerConsole();
+		String opt;
+		try {
+			repository.insert(new Product("F0001", "아메리카노1", 1000)); //findAll() method가 잘 실행되는지 확인해보기 위해 임시로 추가시킨 products
+			repository.insert(new Product("F0002", "아메리카노1", 1000));
+			repository.insert(new Product("D0002", "아메리카노1", 1000));
+		} catch (AddException e) {
+		}
+		while (true) {
+			try {
+      
+			opt = scanner.nextLine();
+			switch(opt) {
+      /*
+				case "1": 
+					try {
+						managerConsole.add(repository);
+					} catch (AddException e) {
+						System.out.println(e.getMessage());
+					}
+					break;
+          */
+				case "2": // opt에서 유저가 '2'를 입력하면 findAll() method가 실행된다
+					managerConsole.findAll(repository); // 인자로 repository를 받는다. 그래야 repository에서 selectAll 함수를 호출할 수 있기 때문
+					break;
+          /*
+				case "3":
+					try {
+						managerConsole.findByProductNo(repository);
+					} catch (FindException e) {
+						System.out.println(e.getMessage());
+					}
+					break;
+				case "4":
+					try {
+						managerConsole.findByProductNoOrName(repository);
+					} catch (FindException e) {
+						System.out.println(e.getMessage());
+					}
+					break;
+				case "5":
+					try {
+						managerConsole.modify(repository);
+					} catch (FindException e) {
+						System.out.println(e.getMessage());
+					} catch (AddException e) {
+						System.out.println(e.getMessage());
+					}
+					break;
+          */
+				case "9":
+					System.exit(0);
+
+			}
+		}
+
+
+		
+
+	}
+}

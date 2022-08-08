@@ -1,0 +1,63 @@
+@charset "UTF-8";
+*{ 
+	box-sizing: border-box;
+}
+div.productlist>div.table{
+	width: 80%;
+	border: 1px solid;
+	/* display: table; */
+}
+
+/* div.productlist>div.table>div.tr{
+    display: table-row;	
+} */
+
+div.productlist>div.table div.td{
+	width:45%; /* 3개로 안늘어지면 요거를 줄여보기 */
+	border: 1px solid;
+	/* display: table-cell; */
+	display: inline-block;
+}
+div.productlist>div.table div.td>ul{
+	list-style-type: none;
+	margin-left: 0px;
+}
+
+div.productlist>div.table div.td>ul img{
+	width:80%;
+	max-width: 300px;
+}
+
+@media screen and (max-width: 960px) {
+	div.productlist>div.table div.td{
+		width:45%;
+	}
+}
+@media screen and (max-width: 480px) {
+	div.productlist>div.table div.td{
+		width:100%;
+	}
+}
+
+ 
+/*
+div.productlist>table{
+	width:300px;
+}
+div.productlist>table, div.productlist>table td{
+	border:1px solid;
+	border-collapse: collapse;
+}
+div.productlist>table td{
+	width:100px;
+}
+div.productlist>table td>ul img{
+	width:80%;
+	margin: 0 10px;
+}
+
+div.productlist>table tr>td>ul{
+	list-style-type: none;
+	padding-left: 0px;
+}
+*/

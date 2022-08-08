@@ -1,0 +1,39 @@
+package com.my.dto; //DataTransferObject
+
+import java.util.Date;
+
+public class Product{
+	private String prodNo;
+	private String prodName;
+	private int prodPrice;
+	private String prodInfo;
+	private Date prodMfd;
+
+	public Product(String prodNo, String prodName, int prodPrice){
+		this.prodNo = prodNo;
+		this.prodName = prodName;
+		this.prodPrice = prodPrice;
+//		this.(prodNo, prodName, prodPrice, null, null);
+	}
+	
+	public Product(String prodNo, String prodName, int prodPrice, Date prodMfd){
+		this(prodNo, prodName, prodPrice);
+		this.prodMfd = prodMfd;
+	}
+	
+	public Product(String prodNo, String prodName, int prodPrice, String prodInfo, Date prodMfd){
+		this(prodNo, prodName, prodPrice);
+		this.prodMfd = prodMfd;
+	}
+	
+	public void print() {
+		System.out.println("상품번호: " + prodNo + " 상품명: " + prodName + " 가격: " 
+							+ prodPrice + " 상세정보: " + prodInfo + " 제조일자: " + prodMfd);
+	}
+
+	@Override
+	public String toString() {
+		return "상품번호는 " + prodNo+", 상품명은 " "+prodName+", 가격은" + prodPrice";
+	}
+	
+}

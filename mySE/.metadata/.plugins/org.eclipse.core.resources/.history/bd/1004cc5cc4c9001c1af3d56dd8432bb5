@@ -1,0 +1,5 @@
+package com.my.exception;
+
+public class AddException extends Exception {
+
+}

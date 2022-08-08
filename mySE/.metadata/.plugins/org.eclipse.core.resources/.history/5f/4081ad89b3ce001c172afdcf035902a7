@@ -1,0 +1,72 @@
+import java.util.List;
+import java.util.Scanner;
+
+import com.my.dto.Product;
+import com.my.exception.AddException;
+import com.my.exception.FindException;
+import com.my.repository.ProductArrayRepository;
+//import com.my.exception.ModifyException;
+import com.my.repository.ProductListRepository;
+
+public class ProductManagerConsole {
+
+	private void add() {}
+	
+	public void findAll (ProductListRepository repository) {
+	    System.out.println(">>상품 전체조회<<");
+	    try {
+			repository.insert(new Product("D0001", "상품1", 1000)); //findAll() method가 잘 실행되는지 확인해보기 위해 임시로 추가시킨 products
+			repository.insert(new Product("D0002", "상품2", 2000));
+		} catch (AddException e) {
+		}
+			
+		}
+	private void findByProdNo(ProductListRepository repository) {
+		
+	}
+	private void findByProdNoOrName(ProductListRepository repository) {
+		
+	}
+	private void modify(ProductListRepository repository) {
+		
+	}
+	
+	public static void main(String[] args) {
+		ProductManagerConsole managerConsole = new ProductManagerConsole();
+		managerConsole = new ProductManagerConsole();
+		Scanner sc = new Scanner(System.in);
+		
+
+		while(true) {
+    	System.out.println("작업구분 :상품등록-1, 상품전체조회-2, 상품번호로 조회-3, 검색어로 조회-4, 상품수정-5, 종료-9"); // 유저가 선택할때마다 작업구분 창도 띄워줘야해서 while 문 안으로 넣었습니다
+			String opt = sc.nextLine();
+			switch(opt) {
+      
+      //case 부분은 주석처리했다가 method하나를 완성할때마다 완성된 부분만 주석을 풀어서 테스트하시는게 좋아요 
+//			case "1":
+//				System.out.println("상품등록");
+//				managerConsole.add();
+//				break;
+			case "2":
+				System.out.println("상품번호는");
+				managerConsole.findAll();
+				break;
+//			case "3":
+//				System.out.println("상품번호로 조회");
+//				managerConsole.findByProdNo();
+//				break;
+//			case "4":
+//				System.out.println("검색어로 조회");
+//				managerConsole.findByProdNoOrName();
+//				break;
+//			case "5":
+//				System.out.println("상품수정");
+//				managerConsole.modify();
+//				break;
+//			case "9":System.out.println("종료");
+//				System.exit(0);
+        
+			}
+		}
+	}
+}

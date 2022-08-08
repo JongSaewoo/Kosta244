@@ -1,0 +1,54 @@
+package com.example.demo.repository;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.demo.entity.A;
+
+@SpringBootTest
+class ARepositoryTest {
+	@Autowired
+	private ARepository repository;
+	
+	@Test
+	void testSave() {
+		A a = new A();
+		a.setA1("1"); 
+		a.setA2(new BigDecimal(1.0));
+//		a.setA3(null);
+		a.setA4("a4-1");
+		repository.save(a); 
+		//Hibernate: select (JPA의 find()메서드호출)
+		//Hibernate: insert (JPA의 persist()메서드호출)
+		
+		A aa = new A();
+		aa.setA1("1");
+		aa.setA2(new BigDecimal(2));
+		aa.setA4("a4-2");
+		repository.save(aa); 
+		//Hibernate: select (JPA의 find()메서드호출)
+		//Hibernate: update (JPA의 persist()메서드 호출)
+	}
+	
+	@Test
+	void testFindById() {
+		Optional<A> optA = repository.findById("1");
+		assertTrue(optA.isPresent()); 
+		String expectedA4 = "a4-2";
+		A a = optA.get();
+		assertEquals(expectedA4, a.getA4());
+	}
+	
+	@Test
+	void testDeleteById() {
+		repository.deleteById("1");
+		
+		repository.findById("1");
+	}
+}

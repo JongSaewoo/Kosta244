@@ -1,0 +1,38 @@
+2022-08-02 14:25:11.677  INFO 10044 --- [Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2022-08-02 14:25:11.682  INFO 10044 --- [HikariPool-7 connection closer] jdbc.connection                          : 23. Connection closed
+2022-08-02 14:25:11.683  INFO 10044 --- [HikariPool-7 connection closer] jdbc.audit                               : 23. Connection.close() returned 
+2022-08-02 14:25:11.683  INFO 10044 --- [HikariPool-7 connection closer] jdbc.connection                          : 24. Connection closed
+2022-08-02 14:25:11.683  INFO 10044 --- [HikariPool-7 connection closer] jdbc.audit                               : 24. Connection.close() returned 
+2022-08-02 14:25:11.683  INFO 10044 --- [Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2022-08-02 14:25:11.746  INFO 10044 --- [restartedMain] com.my.Demo1Application                  : Starting Demo1Application using Java 17.0.2 on DESKTOP-IQD8IAG with PID 10044 (C:\Users\sitsu\OneDrive\바탕 화면\kosta244\mySpringBoot\demo1\target\classes started by sitsu in C:\Users\sitsu\OneDrive\바탕 화면\kosta244\mySpringBoot\demo1)
+2022-08-02 14:25:11.746  INFO 10044 --- [restartedMain] com.my.Demo1Application                  : No active profile set, falling back to 1 default profile: "default"
+2022-08-02 14:25:11.937  WARN 10044 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.my]' package. Please check your configuration.
+2022-08-02 14:25:11.974  INFO 10044 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9999 (http)
+2022-08-02 14:25:11.975  INFO 10044 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-02 14:25:11.975  INFO 10044 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-02 14:25:11.996  INFO 10044 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/demo1]  : Initializing Spring embedded WebApplicationContext
+2022-08-02 14:25:11.996  INFO 10044 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 248 ms
+2022-08-02 14:25:12.015  INFO 10044 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2022-08-02 14:25:12.030  INFO 10044 --- [restartedMain] jdbc.connection                          : 25. Connection opened
+2022-08-02 14:25:12.030  INFO 10044 --- [restartedMain] jdbc.audit                               : 25. Connection.new Connection returned 
+2022-08-02 14:25:12.030  INFO 10044 --- [restartedMain] com.zaxxer.hikari.pool.PoolBase          : HikariPool-8 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.)
+2022-08-02 14:25:12.030  INFO 10044 --- [restartedMain] jdbc.audit                               : 25. Connection.isReadOnly() returned false
+2022-08-02 14:25:12.030  INFO 10044 --- [restartedMain] jdbc.audit                               : 25. Connection.getAutoCommit() returned true
+2022-08-02 14:25:12.031  INFO 10044 --- [restartedMain] jdbc.audit                               : 25. Connection.isValid(1) returned true
+2022-08-02 14:25:12.031  INFO 10044 --- [restartedMain] jdbc.audit                               : 25. Connection.getTransactionIsolation() returned 2
+2022-08-02 14:25:12.032  INFO 10044 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2022-08-02 14:25:12.123  INFO 10044 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-08-02 14:25:12.130  INFO 10044 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9999 (http) with context path '/demo1'
+2022-08-02 14:25:12.134  INFO 10044 --- [restartedMain] com.my.Demo1Application                  : Started Demo1Application in 0.417 seconds (JVM running for 10695.096)
+2022-08-02 14:25:12.137  INFO 10044 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2022-08-02 14:25:12.152  INFO 10044 --- [HikariPool-8 connection adder] jdbc.connection                          : 26. Connection opened
+2022-08-02 14:25:12.152  INFO 10044 --- [HikariPool-8 connection adder] jdbc.audit                               : 26. Connection.new Connection returned 
+2022-08-02 14:25:12.152  INFO 10044 --- [HikariPool-8 connection adder] jdbc.audit                               : 26. Connection.isReadOnly() returned false
+2022-08-02 14:25:12.152  INFO 10044 --- [HikariPool-8 connection adder] jdbc.audit                               : 26. Connection.getAutoCommit() returned true
+2022-08-02 14:25:47.039  INFO 10044 --- [RMI TCP Connection(241)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-08-02 14:25:47.057  INFO 10044 --- [RMI TCP Connection(241)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2022-08-02 14:25:47.059  INFO 10044 --- [HikariPool-8 connection closer] jdbc.connection                          : 25. Connection closed
+2022-08-02 14:25:47.059  INFO 10044 --- [HikariPool-8 connection closer] jdbc.audit                               : 25. Connection.close() returned 
+2022-08-02 14:25:47.059  INFO 10044 --- [HikariPool-8 connection closer] jdbc.connection                          : 26. Connection closed
+2022-08-02 14:25:47.060  INFO 10044 --- [HikariPool-8 connection closer] jdbc.audit                               : 26. Connection.close() returned 
+2022-08-02 14:25:47.060  INFO 10044 --- [RMI TCP Connection(241)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.

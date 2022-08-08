@@ -1,0 +1,53 @@
+package com.my.repository;
+
+import java.util.List;
+
+import com.my.dto.Board;
+import com.my.exception.FindException;
+import com.my.exception.ModifyException;
+
+public interface BoardRepository {
+	/*
+	 * 1)게시물목록(페이지별 3건씩 보여주기)
+	 * 2)게시글 검색
+	 * 3)게시글 상세보기 : 3-1)조회수 1씩 증가
+	 * 4)게시글 수정하기
+	 * 5)게시글 삭제하기
+	 * 6)답글쓰기
+	 * 7)글쓰기
+	 */
+	
+	/**
+	 * 게시물목록
+	 * @param currentPage 검색할 페이지번호
+	 * @param cntPerPage 페이지별 보여줄 건수
+	 * @return
+	 * @throws FindException
+	 */
+	List<Board> selectByPage(int currentPage, int cntPerPage) throws FindException;
+	
+	/**
+	 * 검색어를 포함한 게시글제목 또는 검색어를 포함한 게시자ID를 갖는 게시글들을 검색한다
+	 * @param word 검색어
+	 * @param currentPage 검색할 페이지번호
+	 * @param cntPerPage 페이지별 보여줄 건수
+	 * @return
+	 * @throws FindException
+	 */
+	List<Board> selectByWord(String word, int currentPage, int cntPerPage) throws FindException;
+	
+	/**
+	 * 글번호에 해당하는 게시글을 검색한다
+	 * @param boardNo 게시글번호
+	 * @return 게시글
+	 * @throws FindException
+	 */
+	Board selectByBoardNo(int boardNo) throws FindException;
+	
+	/**
+	 * 게시글 수정한다
+	 * @param board 게시글객체
+	 * @throws ModifyException
+	 */
+	void update(Board board) throws ModifyException;
+}

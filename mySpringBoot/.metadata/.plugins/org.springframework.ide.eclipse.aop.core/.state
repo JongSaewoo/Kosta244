@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="demoJPA"/>
+<aop-project name="backboardboot"/>
+<aop-project name="demo1"/>
+</aop-reference-model>

@@ -1,0 +1,5 @@
+package com.my.dto;
+
+public class Board {
+
+}

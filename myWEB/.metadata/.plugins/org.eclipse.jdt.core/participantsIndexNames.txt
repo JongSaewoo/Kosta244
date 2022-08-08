@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+C:\Users\sitsu\OneDrive\πŸ≈¡ »≠∏È\kosta244\myWEB\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\309628659.index
+\front\src\main\java
+C:\Users\sitsu\OneDrive\πŸ≈¡ »≠∏È\kosta244\myWEB\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\305910079.index
+\back\src\main\java
+C:\Users\sitsu\OneDrive\πŸ≈¡ »≠∏È\kosta244\myWEB\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3768776885.index
+\backctr\src\main\java

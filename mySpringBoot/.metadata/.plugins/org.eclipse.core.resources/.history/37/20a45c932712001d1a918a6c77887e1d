@@ -1,0 +1,222 @@
+2022-08-02 14:25:57.804  INFO 2216 --- [restartedMain] com.my.Demo1Application                  : Starting Demo1Application using Java 17.0.2 on DESKTOP-IQD8IAG with PID 2216 (C:\Users\sitsu\OneDrive\바탕 화면\kosta244\mySpringBoot\demo1\target\classes started by sitsu in C:\Users\sitsu\OneDrive\바탕 화면\kosta244\mySpringBoot\demo1)
+2022-08-02 14:25:57.806  INFO 2216 --- [restartedMain] com.my.Demo1Application                  : No active profile set, falling back to 1 default profile: "default"
+2022-08-02 14:25:57.858  INFO 2216 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\sitsu\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.1.0.0\ojdbc8-21.1.0.0.jar referenced one or more files that do not exist: file:/C:/Users/sitsu/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.1.0.0/oraclepki.jar
+2022-08-02 14:25:57.858  INFO 2216 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-02 14:25:57.859  INFO 2216 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-02 14:25:58.427  WARN 2216 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.my]' package. Please check your configuration.
+2022-08-02 14:25:58.909  INFO 2216 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9999 (http)
+2022-08-02 14:25:58.925  INFO 2216 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-02 14:25:58.926  INFO 2216 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-02 14:25:58.993  INFO 2216 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/demo1]  : Initializing Spring embedded WebApplicationContext
+2022-08-02 14:25:58.993  INFO 2216 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1134 ms
+2022-08-02 14:25:59.092  INFO 2216 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-02 14:25:59.281  INFO 2216 --- [restartedMain] jdbc.connection                          : 1. Connection opened
+2022-08-02 14:25:59.282  INFO 2216 --- [restartedMain] jdbc.audit                               : 1. Connection.new Connection returned 
+2022-08-02 14:25:59.282  INFO 2216 --- [restartedMain] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.)
+2022-08-02 14:25:59.282  INFO 2216 --- [restartedMain] jdbc.audit                               : 1. Connection.isReadOnly() returned false
+2022-08-02 14:25:59.283  INFO 2216 --- [restartedMain] jdbc.audit                               : 1. Connection.getAutoCommit() returned true
+2022-08-02 14:25:59.285  INFO 2216 --- [restartedMain] jdbc.audit                               : 1. Connection.isValid(1) returned true
+2022-08-02 14:25:59.285  INFO 2216 --- [restartedMain] jdbc.audit                               : 1. Connection.getTransactionIsolation() returned 2
+2022-08-02 14:25:59.288  INFO 2216 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-02 14:25:59.423  INFO 2216 --- [HikariPool-1 connection adder] jdbc.connection                          : 2. Connection opened
+2022-08-02 14:25:59.424  INFO 2216 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.new Connection returned 
+2022-08-02 14:25:59.424  INFO 2216 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.isReadOnly() returned false
+2022-08-02 14:25:59.424  INFO 2216 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.getAutoCommit() returned true
+2022-08-02 14:25:59.773  INFO 2216 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-08-02 14:25:59.803  INFO 2216 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9999 (http) with context path '/demo1'
+2022-08-02 14:25:59.814  INFO 2216 --- [restartedMain] com.my.Demo1Application                  : Started Demo1Application in 2.387 seconds (JVM running for 3.123)
+2022-08-02 14:26:31.092  INFO 14692 --- [main] com.my.control.DemoControllerTest        : Starting DemoControllerTest using Java 17.0.2 on DESKTOP-IQD8IAG with PID 14692 (started by sitsu in C:\Users\sitsu\OneDrive\바탕 화면\kosta244\mySpringBoot\demo1)
+2022-08-02 14:26:31.094  INFO 14692 --- [main] com.my.control.DemoControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-08-02 14:26:32.223  WARN 14692 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.my]' package. Please check your configuration.
+2022-08-02 14:26:33.005  INFO 14692 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-02 14:26:33.358  INFO 14692 --- [main] jdbc.connection                          : 1. Connection opened
+2022-08-02 14:26:33.359  INFO 14692 --- [main] jdbc.audit                               : 1. Connection.new Connection returned 
+2022-08-02 14:26:33.359  INFO 14692 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.)
+2022-08-02 14:26:33.359  INFO 14692 --- [main] jdbc.audit                               : 1. Connection.isReadOnly() returned false
+2022-08-02 14:26:33.359  INFO 14692 --- [main] jdbc.audit                               : 1. Connection.getAutoCommit() returned true
+2022-08-02 14:26:33.361  INFO 14692 --- [main] jdbc.audit                               : 1. Connection.isValid(1) returned true
+2022-08-02 14:26:33.362  INFO 14692 --- [main] jdbc.audit                               : 1. Connection.getTransactionIsolation() returned 2
+2022-08-02 14:26:33.364  INFO 14692 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-02 14:26:33.503  INFO 14692 --- [HikariPool-1 connection adder] jdbc.connection                          : 2. Connection opened
+2022-08-02 14:26:33.504  INFO 14692 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.new Connection returned 
+2022-08-02 14:26:33.504  INFO 14692 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.isReadOnly() returned false
+2022-08-02 14:26:33.504  INFO 14692 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.getAutoCommit() returned true
+2022-08-02 14:26:35.427  INFO 14692 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-08-02 14:26:35.429  INFO 14692 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-08-02 14:26:35.430  INFO 14692 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-08-02 14:26:35.472  INFO 14692 --- [main] com.my.control.DemoControllerTest        : Started DemoControllerTest in 4.926 seconds (JVM running for 6.995)
+2022-08-02 14:26:36.862  INFO 14692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-02 14:26:36.866  INFO 14692 --- [HikariPool-1 connection closer] jdbc.connection                          : 1. Connection closed
+2022-08-02 14:26:36.867  INFO 14692 --- [HikariPool-1 connection closer] jdbc.audit                               : 1. Connection.close() returned 
+2022-08-02 14:26:36.869  INFO 14692 --- [HikariPool-1 connection closer] jdbc.connection                          : 2. Connection closed
+2022-08-02 14:26:36.870  INFO 14692 --- [HikariPool-1 connection closer] jdbc.audit                               : 2. Connection.close() returned 
+2022-08-02 14:26:36.871  INFO 14692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-02 14:35:28.582  INFO 2216 --- [RMI TCP Connection(19)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-08-02 14:35:28.616  INFO 2216 --- [RMI TCP Connection(19)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-02 14:35:28.618  INFO 2216 --- [HikariPool-1 connection closer] jdbc.connection                          : 1. Connection closed
+2022-08-02 14:35:28.619  INFO 2216 --- [HikariPool-1 connection closer] jdbc.audit                               : 1. Connection.close() returned 
+2022-08-02 14:35:28.621  INFO 2216 --- [HikariPool-1 connection closer] jdbc.connection                          : 2. Connection closed
+2022-08-02 14:35:28.622  INFO 2216 --- [HikariPool-1 connection closer] jdbc.audit                               : 2. Connection.close() returned 
+2022-08-02 14:35:28.622  INFO 2216 --- [RMI TCP Connection(19)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-02 14:35:37.217  INFO 12604 --- [main] com.my.control.DemoControllerTest        : Starting DemoControllerTest using Java 17.0.2 on DESKTOP-IQD8IAG with PID 12604 (started by sitsu in C:\Users\sitsu\OneDrive\바탕 화면\kosta244\mySpringBoot\demo1)
+2022-08-02 14:35:37.220  INFO 12604 --- [main] com.my.control.DemoControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-08-02 14:35:38.516  WARN 12604 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.my]' package. Please check your configuration.
+2022-08-02 14:35:39.138  INFO 12604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-02 14:35:39.582  INFO 12604 --- [main] jdbc.connection                          : 1. Connection opened
+2022-08-02 14:35:39.582  INFO 12604 --- [main] jdbc.audit                               : 1. Connection.new Connection returned 
+2022-08-02 14:35:39.582  INFO 12604 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.)
+2022-08-02 14:35:39.583  INFO 12604 --- [main] jdbc.audit                               : 1. Connection.isReadOnly() returned false
+2022-08-02 14:35:39.583  INFO 12604 --- [main] jdbc.audit                               : 1. Connection.getAutoCommit() returned true
+2022-08-02 14:35:39.586  INFO 12604 --- [main] jdbc.audit                               : 1. Connection.isValid(1) returned true
+2022-08-02 14:35:39.586  INFO 12604 --- [main] jdbc.audit                               : 1. Connection.getTransactionIsolation() returned 2
+2022-08-02 14:35:39.593  INFO 12604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-02 14:35:39.744  INFO 12604 --- [HikariPool-1 connection adder] jdbc.connection                          : 2. Connection opened
+2022-08-02 14:35:39.744  INFO 12604 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.new Connection returned 
+2022-08-02 14:35:39.744  INFO 12604 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.isReadOnly() returned false
+2022-08-02 14:35:39.744  INFO 12604 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.getAutoCommit() returned true
+2022-08-02 14:35:41.500  INFO 12604 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-08-02 14:35:41.501  INFO 12604 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-08-02 14:35:41.503  INFO 12604 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-08-02 14:35:41.541  INFO 12604 --- [main] com.my.control.DemoControllerTest        : Started DemoControllerTest in 4.785 seconds (JVM running for 6.321)
+2022-08-02 14:35:42.348  INFO 12604 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-02 14:35:42.353  INFO 12604 --- [HikariPool-1 connection closer] jdbc.connection                          : 1. Connection closed
+2022-08-02 14:35:42.354  INFO 12604 --- [HikariPool-1 connection closer] jdbc.audit                               : 1. Connection.close() returned 
+2022-08-02 14:35:42.355  INFO 12604 --- [HikariPool-1 connection closer] jdbc.connection                          : 2. Connection closed
+2022-08-02 14:35:42.356  INFO 12604 --- [HikariPool-1 connection closer] jdbc.audit                               : 2. Connection.close() returned 
+2022-08-02 14:35:42.357  INFO 12604 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-02 14:38:16.713  INFO 7684 --- [main] com.my.control.DemoControllerTest        : Starting DemoControllerTest using Java 17.0.2 on DESKTOP-IQD8IAG with PID 7684 (started by sitsu in C:\Users\sitsu\OneDrive\바탕 화면\kosta244\mySpringBoot\demo1)
+2022-08-02 14:38:16.715  INFO 7684 --- [main] com.my.control.DemoControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-08-02 14:38:17.753  WARN 7684 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.my]' package. Please check your configuration.
+2022-08-02 14:38:18.517  INFO 7684 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-02 14:38:18.911  INFO 7684 --- [main] jdbc.connection                          : 1. Connection opened
+2022-08-02 14:38:18.911  INFO 7684 --- [main] jdbc.audit                               : 1. Connection.new Connection returned 
+2022-08-02 14:38:18.911  INFO 7684 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.)
+2022-08-02 14:38:18.911  INFO 7684 --- [main] jdbc.audit                               : 1. Connection.isReadOnly() returned false
+2022-08-02 14:38:18.911  INFO 7684 --- [main] jdbc.audit                               : 1. Connection.getAutoCommit() returned true
+2022-08-02 14:38:18.913  INFO 7684 --- [main] jdbc.audit                               : 1. Connection.isValid(1) returned true
+2022-08-02 14:38:18.914  INFO 7684 --- [main] jdbc.audit                               : 1. Connection.getTransactionIsolation() returned 2
+2022-08-02 14:38:18.917  INFO 7684 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-02 14:38:19.054  INFO 7684 --- [HikariPool-1 connection adder] jdbc.connection                          : 2. Connection opened
+2022-08-02 14:38:19.054  INFO 7684 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.new Connection returned 
+2022-08-02 14:38:19.054  INFO 7684 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.isReadOnly() returned false
+2022-08-02 14:38:19.054  INFO 7684 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.getAutoCommit() returned true
+2022-08-02 14:38:21.365  INFO 7684 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-08-02 14:38:21.366  INFO 7684 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-08-02 14:38:21.367  INFO 7684 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-08-02 14:38:21.399  INFO 7684 --- [main] com.my.control.DemoControllerTest        : Started DemoControllerTest in 5.401 seconds (JVM running for 7.351)
+2022-08-02 14:38:22.572  INFO 7684 --- [main] jdbc.audit                               : 1. Connection.isValid(5) returned true
+2022-08-02 14:38:22.577  INFO 7684 --- [main] jdbc.audit                               : 1. Connection.getAutoCommit() returned true
+2022-08-02 14:38:22.772  INFO 7684 --- [main] jdbc.audit                               : 1. PreparedStatement.new PreparedStatement returned 
+2022-08-02 14:38:22.772  INFO 7684 --- [main] jdbc.audit                               : 1. Connection.prepareStatement(SELECT COUNT(*) FROM board) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@2de7c84a
+2022-08-02 14:38:22.781  INFO 7684 --- [main] jdbc.sqlonly                             : SELECT COUNT(*) FROM board 
+
+2022-08-02 14:38:22.869  INFO 7684 --- [main] jdbc.sqltiming                           : SELECT COUNT(*) FROM board 
+ {executed in 88 msec}
+2022-08-02 14:38:22.871  INFO 7684 --- [main] jdbc.audit                               : 1. PreparedStatement.execute() returned true
+2022-08-02 14:38:22.878  INFO 7684 --- [main] jdbc.resultset                           : 1. ResultSet.new ResultSet returned 
+2022-08-02 14:38:22.878  INFO 7684 --- [main] jdbc.audit                               : 1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@3dea1ecc
+2022-08-02 14:38:22.882  INFO 7684 --- [main] jdbc.resultset                           : 1. ResultSet.getMetaData() returned oracle.jdbc.driver.OracleResultSetMetaData@256a5df0
+2022-08-02 14:38:22.882  INFO 7684 --- [main] jdbc.resultset                           : 1. ResultSet.getType() returned 1003
+2022-08-02 14:38:22.882  INFO 7684 --- [main] jdbc.resultset                           : 1. ResultSet.isClosed() returned false
+2022-08-02 14:38:22.883  INFO 7684 --- [main] jdbc.resultset                           : 1. ResultSet.next() returned true
+2022-08-02 14:38:22.885  INFO 7684 --- [main] jdbc.resultset                           : 1. ResultSet.getInt(COUNT(*)) returned 7
+2022-08-02 14:38:22.885  INFO 7684 --- [main] jdbc.resultset                           : 1. ResultSet.isClosed() returned false
+2022-08-02 14:38:22.886  INFO 7684 --- [main] jdbc.resultsettable                      : 
+|---------|
+|count(*) |
+|---------|
+|7        |
+|---------|
+
+2022-08-02 14:38:22.886  INFO 7684 --- [main] jdbc.resultset                           : 1. ResultSet.next() returned false
+2022-08-02 14:38:22.886  INFO 7684 --- [main] jdbc.resultset                           : 1. ResultSet.close() returned void
+2022-08-02 14:38:22.886  INFO 7684 --- [main] jdbc.audit                               : 1. Connection.getMetaData() returned oracle.jdbc.driver.OracleDatabaseMetaData@13d10057
+2022-08-02 14:38:22.888  INFO 7684 --- [main] jdbc.audit                               : 1. PreparedStatement.close() returned 
+2022-08-02 14:38:22.896  INFO 7684 --- [main] jdbc.audit                               : 1. Connection.clearWarnings() returned 
+2022-08-02 14:38:23.015  INFO 7684 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-02 14:38:23.021  INFO 7684 --- [HikariPool-1 connection closer] jdbc.connection                          : 1. Connection closed
+2022-08-02 14:38:23.022  INFO 7684 --- [HikariPool-1 connection closer] jdbc.audit                               : 1. Connection.close() returned 
+2022-08-02 14:38:23.024  INFO 7684 --- [HikariPool-1 connection closer] jdbc.connection                          : 2. Connection closed
+2022-08-02 14:38:23.025  INFO 7684 --- [HikariPool-1 connection closer] jdbc.audit                               : 2. Connection.close() returned 
+2022-08-02 14:38:23.027  INFO 7684 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-02 14:42:38.533  INFO 10480 --- [main] com.my.control.DemoControllerTest        : Starting DemoControllerTest using Java 17.0.2 on DESKTOP-IQD8IAG with PID 10480 (started by sitsu in C:\Users\sitsu\OneDrive\바탕 화면\kosta244\mySpringBoot\demo1)
+2022-08-02 14:42:38.538  INFO 10480 --- [main] com.my.control.DemoControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-08-02 14:42:40.958  WARN 10480 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.my]' package. Please check your configuration.
+2022-08-02 14:42:42.032  INFO 10480 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-02 14:42:42.878  INFO 10480 --- [main] jdbc.connection                          : 1. Connection opened
+2022-08-02 14:42:42.879  INFO 10480 --- [main] jdbc.audit                               : 1. Connection.new Connection returned 
+2022-08-02 14:42:42.880  INFO 10480 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.)
+2022-08-02 14:42:42.881  INFO 10480 --- [main] jdbc.audit                               : 1. Connection.isReadOnly() returned false
+2022-08-02 14:42:42.882  INFO 10480 --- [main] jdbc.audit                               : 1. Connection.getAutoCommit() returned true
+2022-08-02 14:42:42.887  INFO 10480 --- [main] jdbc.audit                               : 1. Connection.isValid(1) returned true
+2022-08-02 14:42:42.888  INFO 10480 --- [main] jdbc.audit                               : 1. Connection.getTransactionIsolation() returned 2
+2022-08-02 14:42:42.896  INFO 10480 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-02 14:42:43.037  INFO 10480 --- [HikariPool-1 connection adder] jdbc.connection                          : 2. Connection opened
+2022-08-02 14:42:43.037  INFO 10480 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.new Connection returned 
+2022-08-02 14:42:43.038  INFO 10480 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.isReadOnly() returned false
+2022-08-02 14:42:43.038  INFO 10480 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.getAutoCommit() returned true
+2022-08-02 14:42:46.243  INFO 10480 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-08-02 14:42:46.244  INFO 10480 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-08-02 14:42:46.247  INFO 10480 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2022-08-02 14:42:46.327  INFO 10480 --- [main] com.my.control.DemoControllerTest        : Started DemoControllerTest in 8.384 seconds (JVM running for 10.74)
+2022-08-02 14:42:48.060  INFO 10480 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-02 14:42:48.067  INFO 10480 --- [HikariPool-1 connection closer] jdbc.connection                          : 1. Connection closed
+2022-08-02 14:42:48.068  INFO 10480 --- [HikariPool-1 connection closer] jdbc.audit                               : 1. Connection.close() returned 
+2022-08-02 14:42:48.070  INFO 10480 --- [HikariPool-1 connection closer] jdbc.connection                          : 2. Connection closed
+2022-08-02 14:42:48.070  INFO 10480 --- [HikariPool-1 connection closer] jdbc.audit                               : 2. Connection.close() returned 
+2022-08-02 14:42:48.071  INFO 10480 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-02 14:44:13.352  INFO 3608 --- [main] com.my.control.DemoControllerTest        : Starting DemoControllerTest using Java 17.0.2 on DESKTOP-IQD8IAG with PID 3608 (started by sitsu in C:\Users\sitsu\OneDrive\바탕 화면\kosta244\mySpringBoot\demo1)
+2022-08-02 14:44:13.357  INFO 3608 --- [main] com.my.control.DemoControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-08-02 14:44:14.672  WARN 3608 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.my]' package. Please check your configuration.
+2022-08-02 14:44:15.234  INFO 3608 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-02 14:44:15.658  INFO 3608 --- [main] jdbc.connection                          : 1. Connection opened
+2022-08-02 14:44:15.658  INFO 3608 --- [main] jdbc.audit                               : 1. Connection.new Connection returned 
+2022-08-02 14:44:15.659  INFO 3608 --- [main] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (Receiver class net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy does not define or inherit an implementation of the resolved method 'abstract int getNetworkTimeout()' of interface java.sql.Connection.)
+2022-08-02 14:44:15.659  INFO 3608 --- [main] jdbc.audit                               : 1. Connection.isReadOnly() returned false
+2022-08-02 14:44:15.659  INFO 3608 --- [main] jdbc.audit                               : 1. Connection.getAutoCommit() returned true
+2022-08-02 14:44:15.662  INFO 3608 --- [main] jdbc.audit                               : 1. Connection.isValid(1) returned true
+2022-08-02 14:44:15.662  INFO 3608 --- [main] jdbc.audit                               : 1. Connection.getTransactionIsolation() returned 2
+2022-08-02 14:44:15.666  INFO 3608 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-02 14:44:15.793  INFO 3608 --- [HikariPool-1 connection adder] jdbc.connection                          : 2. Connection opened
+2022-08-02 14:44:15.793  INFO 3608 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.new Connection returned 
+2022-08-02 14:44:15.793  INFO 3608 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.isReadOnly() returned false
+2022-08-02 14:44:15.793  INFO 3608 --- [HikariPool-1 connection adder] jdbc.audit                               : 2. Connection.getAutoCommit() returned true
+2022-08-02 14:44:17.487  INFO 3608 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-08-02 14:44:17.488  INFO 3608 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-08-02 14:44:17.490  INFO 3608 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2022-08-02 14:44:17.544  INFO 3608 --- [main] com.my.control.DemoControllerTest        : Started DemoControllerTest in 4.857 seconds (JVM running for 6.819)
+2022-08-02 14:44:18.809  INFO 3608 --- [main] jdbc.audit                               : 1. Connection.isValid(5) returned true
+2022-08-02 14:44:18.819  INFO 3608 --- [main] jdbc.audit                               : 1. Connection.getAutoCommit() returned true
+2022-08-02 14:44:19.055  INFO 3608 --- [main] jdbc.audit                               : 1. PreparedStatement.new PreparedStatement returned 
+2022-08-02 14:44:19.056  INFO 3608 --- [main] jdbc.audit                               : 1. Connection.prepareStatement(SELECT COUNT(*) FROM board) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@63c4d16
+2022-08-02 14:44:19.061  INFO 3608 --- [main] jdbc.sqlonly                             : SELECT COUNT(*) FROM board 
+
+2022-08-02 14:44:19.176  INFO 3608 --- [main] jdbc.sqltiming                           : SELECT COUNT(*) FROM board 
+ {executed in 115 msec}
+2022-08-02 14:44:19.177  INFO 3608 --- [main] jdbc.audit                               : 1. PreparedStatement.execute() returned true
+2022-08-02 14:44:19.189  INFO 3608 --- [main] jdbc.resultset                           : 1. ResultSet.new ResultSet returned 
+2022-08-02 14:44:19.190  INFO 3608 --- [main] jdbc.audit                               : 1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@15ad5acb
+2022-08-02 14:44:19.197  INFO 3608 --- [main] jdbc.resultset                           : 1. ResultSet.getMetaData() returned oracle.jdbc.driver.OracleResultSetMetaData@4e3ee457
+2022-08-02 14:44:19.198  INFO 3608 --- [main] jdbc.resultset                           : 1. ResultSet.getType() returned 1003
+2022-08-02 14:44:19.198  INFO 3608 --- [main] jdbc.resultset                           : 1. ResultSet.isClosed() returned false
+2022-08-02 14:44:19.199  INFO 3608 --- [main] jdbc.resultset                           : 1. ResultSet.next() returned true
+2022-08-02 14:44:19.201  INFO 3608 --- [main] jdbc.resultset                           : 1. ResultSet.getInt(COUNT(*)) returned 7
+2022-08-02 14:44:19.202  INFO 3608 --- [main] jdbc.resultset                           : 1. ResultSet.isClosed() returned false
+2022-08-02 14:44:19.203  INFO 3608 --- [main] jdbc.resultsettable                      : 
+|---------|
+|count(*) |
+|---------|
+|7        |
+|---------|
+
+2022-08-02 14:44:19.204  INFO 3608 --- [main] jdbc.resultset                           : 1. ResultSet.next() returned false
+2022-08-02 14:44:19.204  INFO 3608 --- [main] jdbc.resultset                           : 1. ResultSet.close() returned void
+2022-08-02 14:44:19.204  INFO 3608 --- [main] jdbc.audit                               : 1. Connection.getMetaData() returned oracle.jdbc.driver.OracleDatabaseMetaData@5c2a3f0c
+2022-08-02 14:44:19.212  INFO 3608 --- [main] jdbc.audit                               : 1. PreparedStatement.close() returned 
+2022-08-02 14:44:19.234  INFO 3608 --- [main] jdbc.audit                               : 1. Connection.clearWarnings() returned 
+2022-08-02 14:44:19.500  INFO 3608 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-02 14:44:19.507  INFO 3608 --- [HikariPool-1 connection closer] jdbc.connection                          : 1. Connection closed
+2022-08-02 14:44:19.510  INFO 3608 --- [HikariPool-1 connection closer] jdbc.audit                               : 1. Connection.close() returned 
+2022-08-02 14:44:19.515  INFO 3608 --- [HikariPool-1 connection closer] jdbc.connection                          : 2. Connection closed
+2022-08-02 14:44:19.516  INFO 3608 --- [HikariPool-1 connection closer] jdbc.audit                               : 2. Connection.close() returned 
+2022-08-02 14:44:19.517  INFO 3608 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
