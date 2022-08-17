@@ -2,13 +2,13 @@ $(function () {
   let loginedId = 'id1'; //테스트용
 
   //function showList(pageNo){
-  function showList(url, data) {
+  function showList(url/*, data*/) {
     $.ajax({
       // url: '/backboard/boardlist',
       // data: 'currentPage=' + pageNo,
       url: url,
       method: 'get',
-      data: data,
+      // data: data,
       success: function (jsonObj) {
         if (jsonObj.status == 1) {
           let pageBeanObj = jsonObj.t;
@@ -62,7 +62,9 @@ $(function () {
   }
 
   //---페이지 로드되자 마자 게시글1페이지 검색 START---
-  showList('/backboard/boardlist', 'currentPage=1');
+  // showList('/backboard/boardlist', 'currentPage=1');
+  showList('http://localhost:9997/backboardboot/board/list'/*, 'currentPage=1'*/);
+  // showList('http://192.168.0.21:9997/backboardboot/board/list');
   //---페이지 로드되자 마자 게시글1페이지 검색 END---
 
   //---페이지 그룹의 페이지를 클릭 START---
@@ -79,15 +81,17 @@ $(function () {
       // alert("보려는 페이지번호: " + pageNo);
       let word = $('div.search>div.searchInput>input[name=word]').val().trim();
       let url = '';
-      let data = '';
+      // let data = '';
       if (word == '') {
-        url = '/backboard/boardlist';
-        data = 'currentPage=' + pageNo;
+        // url = '/backboard/boardlist';
+        url = 'http://localhost:9997/backboardboot/board/list/' + pageNo;
+        // data = 'currentPage=' + pageNo;
       } else {
-        url = '/backboard/searchboard';
-        data = 'currentPage=' + pageNo + '&word=' + word;
+        // url = '/backboard/searchboard';
+        // data = 'currentPage=' + pageNo + '&word=' + word;
+        url = 'http://localhost:9997/backboardboot/board/search/' + word + '/' + pageNo;
       }
-      showList(url, data);
+      showList(url/*, data*/);
       return false;
     // }
   });
@@ -96,9 +100,10 @@ $(function () {
   //---검색 클릭 START---
   $('div.search>div.searchInput>a').click(function () {
     let word = $('div.search>div.searchInput>input[name=word]').val().trim();
-    let url = '/backboard/searchboard';
-    let data = 'currentPage=1&word=' + word;
-    showList(url, data);
+    // let url = '/backboard/searchboard';
+    // let data = 'currentPage=1&word=' + word;
+    let url = 'http://localhost:9997/backboardboot/board/search/' + word;
+    showList(url/*, data*/);
     return false;
   });
   //---검색 클릭 END---
@@ -115,7 +120,8 @@ $(function () {
       $.ajax({
         //url: '/backboard/viewboard',
         //url:  '/backboard/board/view' + boardNo,
-        url:  '/backboard/board/' + boardNo,
+        // url:  '/backboard/board/' + boardNo,
+        url:  'http://localhost:9997/backboardboot/board/' + boardNo,
         method:'get',
         data : 'boardNo='+boardNo,
         success:function(jsonObj){
@@ -162,7 +168,8 @@ $(function () {
     }
 
     $.ajax({
-      "url": "/backboard/board/" + boardNo,
+      // "url": "/backboard/board/" + boardNo,
+      "url": "http://localhost:9997/backboardboot/board/" + boardNo,
       "method": "PUT",
       "timeout": 0,
       "headers": {
@@ -187,7 +194,8 @@ $(function () {
     alert("in 삭제");
     let boardNo = $(this).parents('div.cell').find('div.board_no').html()
     $.ajax({
-      "url": "/backboard/board/" + boardNo,
+      // "url": "/backboard/board/" + boardNo,
+      "url": "http://localhost:9997/backboardboot/board/" + boardNo,
       "method": "DELETE",
       success: function () {
         location.href = "./boardlist.html";
@@ -209,7 +217,8 @@ $(function () {
     alert("in 답글 부모글번호:" + boardParentNo+", boardTitle:" + boardTitle + ", boardContent:" + boardContent);
 
     $.ajax({
-      "url": "/backboard/board/reply/" + boardParentNo,
+      // "url": "/backboard/board/reply/" + boardParentNo,
+      "url": "http://localhost:9997/backboardboot/board/reply/" + boardParentNo,
       "method": "POST",
       "timeout": 0,
       "headers": {

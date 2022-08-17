@@ -1,0 +1,31 @@
+package com.example.demo.direction.uni;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "order_line_jpa")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter @Setter
+public class OrderLine {
+	@Id
+	private Long orderNo;
+	
+	@ManyToOne
+	@JoinColumn(name = "order_prod_no", nullable = false)
+	//양테이블중 한쪽이 null일때 제대로 출력하기위해 left,right조인을 쓰였는데
+	// nullable = false를 주면 null값이 나오지않기에 left,right조인 대신 inner조인이된다
+	private Product orderP;
+	private int orderQuantitry;
+}

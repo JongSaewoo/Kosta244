@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.Version;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
@@ -81,5 +82,6 @@ public class Board {
 	
 	@Column(name = "board_viewcount")
 	@ColumnDefault(value = "0")
+	@Version
 	private Integer boardViewcount;
 }

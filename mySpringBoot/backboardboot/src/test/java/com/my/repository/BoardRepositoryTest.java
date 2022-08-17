@@ -41,16 +41,19 @@ class BoardRepositoryTest {
 		assertFalse(optB1.isPresent());
 	}
 	
-	//보강(오류남)
 	//(searchBoard)
 	@Test
 	void testFindByWord() {
 		int expectedSize = 2;
-		String word = "1번";
+		String word = "3번";
 		int currentPage = 1;
 		int cntPerPage = 3;
-		
-		List<Board> list = repository.findByWord(word, currentPage, cntPerPage);
+		int endRow = currentPage * cntPerPage;
+		int startRow = endRow - cntPerPage + 1;
+//		logger.error("" + endRow);
+//		logger.error(""  +startRow);
+//		logger.error(word);
+		List<Board> list = repository.findByWord(word, startRow, endRow);
 		assertEquals(expectedSize, list.size());
 	}
 	
@@ -73,9 +76,9 @@ class BoardRepositoryTest {
 	void testReply() {
 		Board b = new Board();
 		
-		b.setBoardParentNo(1L); //1번글의 답글이란 의미
-		b.setBoardTitle("1_re_title");
-		b.setBoardContent("1_re_content");
+		b.setBoardParentNo(2L); //2번글의 답글이란 의미
+		b.setBoardTitle("2_re_title");
+		b.setBoardContent("2_re_content");
 		b.setBoardId("id2");
 		repository.save(b);
 	}
@@ -128,7 +131,7 @@ class BoardRepositoryTest {
 		assertFalse(repository.findById(boardNo).isPresent());
 	}
 	
-	//오름차순으로 존재하는 모든 게시물 검색하여 페이지별로 3개씩 쪼갬
+	//오름차순으로 해당페이지에 존재하는 모든 게시물 검색하여 페이지별로 3개씩 쪼갬
 	@Test
 	void testFindAllPage() {
 		int currentPage = 1;
@@ -140,7 +143,7 @@ class BoardRepositoryTest {
 		});
 	}
 	
-	//최신순으로 해당페이지에 존재하는 게시물 검색 (위 메소드와 차이점을 크게모르겠음)
+	//최신게시글(최신답글x)순서로 해당페이지에 존재하는 게시물 검색하여 페이지별로 3개씩 쪼갬 
 	//(boardList)
 	@Test
 	void testFindByPage() {

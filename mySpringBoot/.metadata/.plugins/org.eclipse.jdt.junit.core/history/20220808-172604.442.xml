@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="OrderLineRepositoryTest.test" project="demoJPA" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.example.demo.direction.uni.repository.OrderLineRepositoryTest" time="0.852" displayname="OrderLineRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.direction.uni.repository.OrderLineRepositoryTest]">
+    <testcase name="test" classname="com.example.demo.direction.uni.repository.OrderLineRepositoryTest" time="0.852" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.direction.uni.repository.OrderLineRepositoryTest]/[method:test()]"/>
+  </testsuite>
+</testrun>

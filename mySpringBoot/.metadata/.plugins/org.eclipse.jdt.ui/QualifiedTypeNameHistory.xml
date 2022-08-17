@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.AutoConfigureOrder"/>
     <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="org.springframework.boot.SpringBootConfiguration"/>
     <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="javax.persistence.Version"/>
 </qualifiedTypeNameHistroy>

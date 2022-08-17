@@ -1,0 +1,32 @@
+package com.example.demo.direction.bi;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.example.demo.direction.uni.Product;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name="order_line_jpa")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter @Setter
+@IdClass(OrderLinePK.class) //복합키용 p키 클래스
+public class OrderLine {
+	@Id
+	private Long orderNo;
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "order_prod_no", nullable = false)
+	private Product orderP;
+	
+	private int orderQuantity;
+}

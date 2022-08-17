@@ -1,0 +1,31 @@
+package com.example.demo.direction.uni.repository;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.demo.direction.uni.OrderLine;
+import com.example.demo.direction.uni.Product;
+
+@SpringBootTest
+class OrderLineRepositoryTest {
+	@Autowired
+	private OrderLineRepository repository;
+	
+	@Test
+	void test() {
+		Long orderNo = 3L;
+		String prodNo = "C0002";
+		int orderQuentity = 3;
+		OrderLine line = new OrderLine();
+		line.setOrderNo(orderNo);
+		
+		Product p = new Product();
+		p.setProdNo(prodNo);
+		line.setOrderP(null);
+		
+		line.setOrderQuantitry(orderQuentity);
+		repository.save(line);
+	}
+
+}

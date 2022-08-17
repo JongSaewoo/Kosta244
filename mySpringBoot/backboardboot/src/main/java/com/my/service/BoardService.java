@@ -3,6 +3,8 @@ package com.my.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -164,10 +166,11 @@ public class BoardService {
 	 * @param boardNo
 	 * @throws RemoveException
 	 */
+	@Transactional
 	public void removeBoard(Long boardNo) throws RemoveException {
-		repository.deleteReply(boardNo);
 		repository.findById(boardNo).orElseThrow(()-> 
-							new RemoveException("글이 없습니다"));
+		new RemoveException("글이 없습니다"));
+		repository.deleteReply(boardNo);
 		repository.deleteById(boardNo);
 	}
 }

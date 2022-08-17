@@ -226,7 +226,7 @@
 <uri name="http://www.w3.org/2001/XMLSchema" uri="file:///C:/Users/sitsu/OneDrive/바탕%20화면/kosta244/SW/eclipse/eclipse-jee-2022-03-R-win32-x86_64/eclipse/configuration/org.eclipse.osgi/1135/0/.cp/cache/www.w3.org/2001/XMLSchema.xsd"/>
 <system systemId="http://www.w3.org/2001/xml.xsd" uri="file:///C:/Users/sitsu/OneDrive/바탕%20화면/kosta244/SW/eclipse/eclipse-jee-2022-03-R-win32-x86_64/eclipse/configuration/org.eclipse.osgi/1135/0/.cp/cache/www.w3.org/2001/xml.xsd"/>
 <uri name="http://www.w3.org/2001/XInclude" uri="file:///C:/Users/sitsu/OneDrive/바탕%20화면/kosta244/SW/eclipse/eclipse-jee-2022-03-R-win32-x86_64/eclipse/configuration/org.eclipse.osgi/892/0/.cp/xslt-schemas/xinclude.xsd"/>
+<public publicId="-//LOG4J//DTD LOG4J//EN" uri="file:///C:/Users/sitsu/OneDrive/바탕%20화면/kosta244/SW/eclipse/eclipse-jee-2022-03-R-win32-x86_64/eclipse/configuration/org.eclipse.osgi/1253/0/.cp/dtd/log4j-1.2.dtd"/>
 <public publicId="-//SPRING//DTD BEAN//EN" uri="platform:/plugin/org.springframework.beans/org/springframework/beans/factory/xml/spring-beans.dtd"/>
 <public publicId="-//SPRING//DTD BEAN 2.0//EN" uri="file:///C:/Users/sitsu/OneDrive/바탕%20화면/kosta244/SW/eclipse/eclipse-jee-2022-03-R-win32-x86_64/eclipse/configuration/org.eclipse.osgi/1144/0/.cp/org/springframework/beans/factory/xml/spring-beans-2.0.dtd"/>
-<public publicId="-//LOG4J//DTD LOG4J//EN" uri="file:///C:/Users/sitsu/OneDrive/바탕%20화면/kosta244/SW/eclipse/eclipse-jee-2022-03-R-win32-x86_64/eclipse/configuration/org.eclipse.osgi/1230/0/.cp/dtd/log4j-1.2.dtd"/>
 </catalog>

@@ -58,7 +58,7 @@ public interface BoardRepository extends CrudRepository<Board, Long> {
 				+ "			   board_no, board_parent_no, board_title, board_content, board_id, board_viewcount 	\r\n"
 				+ "			   ,board_dt\r\n"
 				+ "          FROM board_jpa \r\n"
-				+ "          WHERE board_title LIKE '%?1%' OR board_id LIKE '%?2%'\r\n"
+				+ "          WHERE board_title LIKE '%'||?1||'%' OR board_id LIKE '%'||?1||'%'\r\n"
 				+ "          START WITH board_parent_no = 0\r\n"
 				+ "          CONNECT BY PRIOR board_no = board_parent_no\r\n"
 				+ "          ORDER SIBLINGS BY board_no DESC\r\n"
@@ -72,7 +72,7 @@ public interface BoardRepository extends CrudRepository<Board, Long> {
 	Long findCount();
 	@Query(value = "SELECT COUNT(*) \r\n"
 			+ "FROM board \r\n"
-			+ "WHERE board_title LIKE '%?1%' OR board_id LIKE '%?2%' ", nativeQuery = true)
+			+ "WHERE board_title LIKE '%?1%' OR board_id LIKE '%?1%' ", nativeQuery = true)
 	Long findCount(String word);
 	
 	/**

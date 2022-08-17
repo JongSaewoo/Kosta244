@@ -1,0 +1,7 @@
+package com.example.demo.direction.uni.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface OrderLineRepository extends CrudRepository<T, ID> {
+
+}

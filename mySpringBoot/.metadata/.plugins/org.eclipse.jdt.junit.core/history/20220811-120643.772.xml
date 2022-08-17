@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AccountServiceTest.testOpen" project="demoAOP" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.example.demo.service.AccountServiceTest" time="0.624" displayname="AccountServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.service.AccountServiceTest]">
+    <testcase name="testOpen" classname="com.example.demo.service.AccountServiceTest" time="0.624" displayname="testOpen()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.service.AccountServiceTest]/[method:testOpen()]"/>
+  </testsuite>
+</testrun>

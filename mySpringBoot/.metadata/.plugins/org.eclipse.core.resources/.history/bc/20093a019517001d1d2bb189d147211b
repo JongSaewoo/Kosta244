@@ -1,0 +1,40 @@
+package com.example.demo.direction.bi;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.example.demo.direction.uni.Product;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name="order_line_jpa")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter @Setter
+@IdClass(OrderLinePK.class) //복합키용 p키 클래스(OrderLinePK.class)만든것을 어노테이션함
+public class OrderLine {
+	@Id
+//	@Column(name = "order_line_no") //복합키로써 pk의 column명과
+	// fk의 column명이 같아야된다, 하지만 pk의 column을 굳이 안써도 joincolumn에서
+	// fk컬럼명과 fk컬럼명이 같도록 매칭시켜준다
+	@ManyToOne
+	@JoinColumn(name = "order_line_no")
+	private OrderInfo orderInfo;
+//	private Long orderNo;
+	
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "order_prod_no", nullable = false)
+	private Product orderP;
+	
+	private int orderQuantity;
+}
