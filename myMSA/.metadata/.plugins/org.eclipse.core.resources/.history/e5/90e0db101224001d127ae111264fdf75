@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: zuul
+    
+server:
+#  port: 8080
+  port: 8765
+  
+zuul:
+  routes:
+    catalog:
+      path: /catalogs/**
+      serviceId: catalog
+      stripPrefix: false
+      #localhost:8765/catalog/catalogs/customerinfo/1로 요청
+      #localhost:8765/catalogs/customerinfo/1로 요청도 가능
+      
+    customer:
+      path: /customers/**
+      serviceId: customer 
+      #localhost:8765/customer/customers/1로 요청
+eureka:
+  instance:
+    non-secure-port: ${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      
+#eureka server 실행
+#zuul server 실행 -> eureka client로 등록됨
+#catalog4eureka, customer4eureka, customer4eureka2 실행 -> eureka client로 등록

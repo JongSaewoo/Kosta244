@@ -1,0 +1,13 @@
+package egovframework.msa.sample;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Catalogs1Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Catalogs1Application.class, args);
+	}
+
+}

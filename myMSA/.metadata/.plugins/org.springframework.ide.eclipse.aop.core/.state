@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="Customers3Ribbon"/>
+<aop-project name="Customers3Ribbon2"/>
+<aop-project name="Catalogs3Ribbon"/>
+</aop-reference-model>

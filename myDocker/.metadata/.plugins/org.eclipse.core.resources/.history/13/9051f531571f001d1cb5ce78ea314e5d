@@ -1,0 +1,5 @@
+package com.example.demodocker1.control;
+
+public class WelcomeController {
+
+}

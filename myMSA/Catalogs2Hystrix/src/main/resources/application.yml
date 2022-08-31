@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: catalog
+    
+hystrix:
+  command:
+    default:    # command Key. use 'default' for global setting.
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 500       
+      metrics: #1분(60000)동안 최소 1회 호출 이상, 50% 이상 실패면 circuit open
+        rollingStats: 
+          timeInMilliseconds: 60000     
+      circuitBreaker:
+        requestVolumeThreshold: 1 
+        errorThresholdPercentage: 50           
+       

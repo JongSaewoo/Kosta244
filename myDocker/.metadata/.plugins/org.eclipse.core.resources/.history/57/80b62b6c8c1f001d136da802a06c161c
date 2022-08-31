@@ -1,0 +1,9 @@
+package com.example.demo.demodocker1.entity;
+
+@Entity
+@Table(name="test_docker")
+@Setter @Getter
+public class Test {
+	private String a;
+	private Integer b;
+}

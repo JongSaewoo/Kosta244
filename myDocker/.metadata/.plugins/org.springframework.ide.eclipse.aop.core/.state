@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="demodocker1"/>
+<aop-project name="demodocker2"/>
+<aop-project name="demodocker3"/>
+<aop-project name="dbdocker"/>
+</aop-reference-model>
